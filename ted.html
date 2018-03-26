@@ -3,7 +3,164 @@
   <head>
     <meta charset="utf-8"/>
     <title>Test Report</title>
-    <link href="assets/style.css" rel="stylesheet" type="text/css"/></head>
+    <style>body {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	min-width: 1200px;
+	color: #999;
+}
+h2 {
+	font-size: 16px;
+	color: black;
+}
+
+p {
+    color: black;
+}
+
+a {
+	color: #999;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+/******************************
+ * SUMMARY INFORMATION
+ ******************************/
+
+#environment td {
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+}
+
+#environment tr:nth-child(odd) {
+	background-color: #f6f6f6;
+}
+
+/******************************
+ * TEST RESULT COLORS
+ ******************************/
+span.passed, .passed .col-result {
+	color: green;
+}
+span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
+	color: orange;
+}
+span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result  {
+	color: red;
+}
+
+
+/******************************
+ * RESULTS TABLE
+ *
+ * 1. Table Layout
+ * 2. Extra
+ * 3. Sorting items
+ *
+ ******************************/
+
+/*------------------
+ * 1. Table Layout
+ *------------------*/
+
+#results-table {
+	border: 1px solid #e6e6e6;
+	color: #999;
+	font-size: 12px;
+	width: 100%
+}
+
+#results-table th, #results-table td {
+	padding: 5px;
+	border: 1px solid #E6E6E6;
+	text-align: left
+}
+#results-table th {
+	font-weight: bold
+}
+
+/*------------------
+ * 2. Extra
+ *------------------*/
+
+.log:only-child {
+	height: inherit
+}
+.log {
+	background-color: #e6e6e6;
+	border: 1px solid #e6e6e6;
+	color: black;
+	display: block;
+	font-family: "Courier New", Courier, monospace;
+	height: 230px;
+	overflow-y: scroll;
+	padding: 5px;
+	white-space: pre-wrap
+}
+div.image {
+	border: 1px solid #e6e6e6;
+	float: right;
+	height: 240px;
+	margin-left: 5px;
+	overflow: hidden;
+	width: 320px
+}
+div.image img {
+	width: 320px
+}
+.collapsed {
+	display: none;
+}
+.expander::after {
+	content: " (show details)";
+	color: #BBB;
+	font-style: italic;
+	cursor: pointer;
+}
+.collapser::after {
+	content: " (hide details)";
+	color: #BBB;
+	font-style: italic;
+	cursor: pointer;
+}
+
+/*------------------
+ * 3. Sorting items
+ *------------------*/
+.sortable {
+	cursor: pointer;
+}
+
+.sort-icon {
+	font-size: 0px;
+	float: left;
+	margin-right: 5px;
+	margin-top: 5px;
+	/*triangle*/
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+}
+
+.inactive .sort-icon {
+	/*finish triangle*/
+	border-top: 8px solid #E6E6E6;
+}
+
+.asc.active .sort-icon {
+	/*finish triangle*/
+	border-bottom: 8px solid #999;
+}
+
+.desc.active .sort-icon {
+	/*finish triangle*/
+	border-top: 8px solid #999;
+}
+</style></head>
   <body onLoad="init()">
     <script>/* This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this file,
@@ -228,7 +385,7 @@ function filter_table(elem) {
     not_found_message.hidden = !all_rows_hidden;
 }
 </script>
-    <p>Report generated on 26-Mar-2018 at 11:09:35 by<a href="https://pypi.python.org/pypi/pytest-html"> pytest-html</a> v1.16.1</p>
+    <p>Report generated on 26-Mar-2018 at 12:23:33 by<a href="https://pypi.python.org/pypi/pytest-html"> pytest-html</a> v1.16.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -244,7 +401,7 @@ function filter_table(elem) {
         <td>Python</td>
         <td>3.6.3</td></tr></table>
     <h2>Summary</h2>
-    <p>36 tests ran in 59.10 seconds. </p>
+    <p>36 tests ran in 58.76 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">34 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -260,11 +417,11 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Failed</td>
           <td class="col-name">ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;qed_pram.ubertool_ecorest.ubertool.ubertool.agdrift.tests.test_agdrift_unittest.TestAgdrift testMethod=test_locate_integrated_avg&gt;<br/><br/>    def test_locate_integrated_avg(self):<br/>        &quot;&quot;&quot;<br/>            :description retrieves values for distance and the first deposition scenario from the sql database<br/>                         and generates running weighted averages from the first x,y value until it locates the user<br/>                         specified integrated average of interest<br/>            :param num_db_values: number of distance values to be retrieved<br/>            :param distance_name: name of column in sql database that contains the distance values<br/>            :NOTE any blank fields are filled with &#x27;nan&#x27;<br/>            :return:<br/>            &quot;&quot;&quot;<br/>    <br/>        # create empty pandas dataframes to create empty object for this unittest<br/>        agdrift_empty = self.create_agdrift_object()<br/>    <br/>        agdrift_empty.db_name = &#x27;sqlite:///../sqlite_agdrift_distance.db&#x27;<br/>        agdrift_empty.db_table = &#x27;output&#x27;<br/>    <br/>        expected_result_x = pd.Series([], dtype=&#x27;float&#x27;)<br/>        expected_result_y = pd.Series([], dtype=&#x27;float&#x27;)<br/>        expected_result_npts = pd.Series([], dtype=&#x27;object&#x27;)<br/>    <br/>        x_array_in = pd.Series([], dtype=&#x27;float&#x27;)<br/>        y_array_in = pd.Series([], dtype=&#x27;float&#x27;)<br/>        x_array_out = pd.Series([], dtype=&#x27;float&#x27;)<br/>        y_array_out = pd.Series([], dtype=&#x27;float&#x27;)<br/>    <br/>        try:<br/>    <br/>            expected_result_x = [0.,0.102525,0.20505,0.4101,0.8202,1.6404,3.2808,4.9212,6.5616,9.8424,13.1232,19.6848,26.2464,<br/>                        32.808,39.3696,45.9312,52.4928,59.0544,65.616,72.1776,78.7392,85.3008,91.8624,98.424,104.9856,<br/>                        111.5472,118.1088,124.6704,131.232,137.7936,144.3552,150.9168,157.4784,164.04,170.6016,177.1632,<br/>                        183.7248,190.2864,196.848,203.4096,209.9712,216.5328,223.0944,229.656,236.2176,242.7792,249.3408,<br/>                        255.9024,262.464,269.0256,275.5872,282.1488,288.7104,295.272,301.8336,308.3952,314.9568,321.5184,<br/>                        328.08,334.6416,341.2032,347.7648,354.3264,360.888,367.4496,374.0112,380.5728,387.1344,393.696,<br/>                        400.2576,406.8192,413.3808,419.9424,426.504,433.0656,439.6272,446.1888,452.7504,459.312,465.8736,<br/>                        472.4352,478.9968,485.5584,492.12,498.6816,505.2432,511.8048,518.3664,524.928,531.4896,538.0512,<br/>                        544.6128,551.1744,557.736,564.2976,570.8592,577.4208,583.9824,590.544,597.1056,603.6672,610.2288,<br/>                        616.7904,623.352,629.9136,636.4752,643.0368,649.5984,656.16,662.7216,669.2832,675.8448,682.4064,<br/>                        688.968,695.5296,702.0912,708.6528,715.2144,721.776,728.3376,734.8992,741.4608,748.0224,754.584,<br/>                        761.1456,767.7072,774.2688,780.8304,787.392,793.9536,800.5152,807.0768,813.6384,820.2,826.7616,<br/>                        833.3232,839.8848,846.4464,853.008,859.5696,866.1312,872.6928,879.2544,885.816,892.3776,898.9392,<br/>                        905.5008,912.0624,918.624,925.1856,931.7472,938.3088,944.8704,951.432,957.9936,964.5552,971.1168,<br/>                        977.6784,984.24,990.8016]<br/>    <br/>    <br/>            expected_result_y = [0.364712246,0.351507467,0.339214283,0.316974687,0.279954504,0.225948786,0.159949625,<br/>                                 0.123048839,0.099781801,0.071666234,0.056352938,0.03860139,0.029600805,0.024150524,<br/>                                 0.020550354,0.01795028,0.015967703,0.014467663,0.013200146,0.01215011,0.011300098,<br/>                                 0.010550085,0.009905072,0.009345065,0.008845057,0.008400051,0.008000046,0.007635043,<br/>                                 0.007300039,0.007000034,0.006725033,0.00646503,0.006230027,0.006010027,0.005805023,<br/>                                 0.005615023,0.005435021,0.00527002,0.00511002,0.004960017,0.004820017,0.004685016,<br/>                                 0.004560015,0.004440015,0.004325013,0.004220012,0.004120012,0.004020012,0.003925011,<br/>                                 0.003835011,0.00375001,0.00367001,0.00359001,0.00351001,0.003435009,0.003365009,<br/>                                 0.003300007,0.003235009,0.003170007,0.003110007,0.003055006,0.003000007,0.002945006,<br/>                                 0.002895006,0.002845006,0.002795006,0.002745006,0.002695006,0.002650005,0.002610005,<br/>                                 0.002570005,0.002525006,0.002485004,0.002450005,0.002410005,0.002370005,0.002335004,<br/>                                 0.002300005,0.002265004,0.002235004,0.002205004,0.002175004,0.002145004,0.002115004,<br/>                                 0.002085004,0.002055004,0.002025004,0.002000002,0.001975004,0.001945004,0.001920002,<br/>                                 0.001900002,0.001875004,0.001850002,0.001830002,0.001805004,0.001780002,0.001760002,<br/>                                 0.001740002,0.001720002,0.001700002,0.001680002,0.001660002,0.001640002,0.001620002,<br/>                                 0.001605001,0.001590002,0.001570002,0.001550002,0.001535001,0.001520002,0.001500002,<br/>                                 0.001485001,0.001470002,0.001455001,0.001440002,0.001425001,0.001410002,0.001395001,<br/>                                 0.001385001,0.001370002,0.001355001,0.001340002,0.001325001,0.001315001,0.001305001,<br/>                                 0.001290002,0.001275001,0.001265001,0.001255001,0.001245001,0.001230002,0.001215001,<br/>                                 0.001205001,0.001195001,0.001185001,0.001175001,0.001165001,0.001155001,0.001145001,<br/>                                 0.001135001,0.001125001,0.001115001,0.001105001,0.001095001,0.001085001,0.001075001,<br/>                                 0.001065001,0.00106,0.001055001,0.001045001,0.001035001,0.001025001,0.001015001,<br/>                                 0.001005001,0.0009985,0.000993001,0.000985001,0.000977001,0.000969501]<br/>    <br/>            expected_result_npts = 160<br/>            expected_x_dist_of_interest = 990.8016<br/>    <br/>    <br/>            x_dist = 6.56<br/>            weighted_avg = 0.0009697  #this is the running average value we&#x27;re looking for<br/>            agdrift_empty.distance_name = &#x27;distance_ft&#x27;<br/>            agdrift_empty.scenario_name = &#x27;ground_low_vf&#x27;<br/>            agdrift_empty.num_db_values = 161<br/>            agdrift_empty.find_nearest_x = True<br/>&gt;           x_array_in = agdrift_empty.get_distances(agdrift_empty.num_db_values)<br/><br/>ubertool\ubertool\agdrift\tests\test_agdrift_unittest.py:1447: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/><br/>self = &lt;qed_pram.ubertool_ecorest.ubertool.ubertool.agdrift.agdrift_exe.Agdrift object at 0x000001DBBF558898&gt;<br/>num_values = 161<br/><br/>    def get_distances(self, num_values):<br/>        &quot;&quot;&quot;<br/>            :description retrieves distance values for deposition scenario datasets<br/>            :            all scenarios use same distances<br/>            :param num_values: number of distance values to be retrieved<br/>            :param distance_name: name of column in sql database that contains the distance values<br/>            :NOTE any blank fields are filled with &#x27;nan&#x27;<br/>            :return:<br/>            &quot;&quot;&quot;<br/>        conn = sqlite3.connect(self.db_name)<br/>        cursor = conn.cursor()<br/>&gt;       result = cursor.execute(&quot;SELECT &quot; + self.distance_name + &quot; from &quot; + self.db_table)<br/><span class="error">E       sqlite3.OperationalError: no such table: output</span><br/><br/>ubertool\ubertool\agdrift\agdrift_functions.py:723: OperationalError<br/><br/>During handling of the above exception, another exception occurred:<br/><br/>self = &lt;qed_pram.ubertool_ecorest.ubertool.ubertool.agdrift.tests.test_agdrift_unittest.TestAgdrift testMethod=test_locate_integrated_avg&gt;<br/><br/>    def test_locate_integrated_avg(self):<br/>        &quot;&quot;&quot;<br/>            :description retrieves values for distance and the first deposition scenario from the sql database<br/>                         and generates running weighted averages from the first x,y value until it locates the user<br/>                         specified integrated average of interest<br/>            :param num_db_values: number of distance values to be retrieved<br/>            :param distance_name: name of column in sql database that contains the distance values<br/>            :NOTE any blank fields are filled with &#x27;nan&#x27;<br/>            :return:<br/>            &quot;&quot;&quot;<br/>    <br/>        # create empty pandas dataframes to create empty object for this unittest<br/>        agdrift_empty = self.create_agdrift_object()<br/>    <br/>        agdrift_empty.db_name = &#x27;sqlite:///../sqlite_agdrift_distance.db&#x27;<br/>        agdrift_empty.db_table = &#x27;output&#x27;<br/>    <br/>        expected_result_x = pd.Series([], dtype=&#x27;float&#x27;)<br/>        expected_result_y = pd.Series([], dtype=&#x27;float&#x27;)<br/>        expected_result_npts = pd.Series([], dtype=&#x27;object&#x27;)<br/>    <br/>        x_array_in = pd.Series([], dtype=&#x27;float&#x27;)<br/>        y_array_in = pd.Series([], dtype=&#x27;float&#x27;)<br/>        x_array_out = pd.Series([], dtype=&#x27;float&#x27;)<br/>        y_array_out = pd.Series([], dtype=&#x27;float&#x27;)<br/>    <br/>        try:<br/>    <br/>            expected_result_x = [0.,0.102525,0.20505,0.4101,0.8202,1.6404,3.2808,4.9212,6.5616,9.8424,13.1232,19.6848,26.2464,<br/>                        32.808,39.3696,45.9312,52.4928,59.0544,65.616,72.1776,78.7392,85.3008,91.8624,98.424,104.9856,<br/>                        111.5472,118.1088,124.6704,131.232,137.7936,144.3552,150.9168,157.4784,164.04,170.6016,177.1632,<br/>                        183.7248,190.2864,196.848,203.4096,209.9712,216.5328,223.0944,229.656,236.2176,242.7792,249.3408,<br/>                        255.9024,262.464,269.0256,275.5872,282.1488,288.7104,295.272,301.8336,308.3952,314.9568,321.5184,<br/>                        328.08,334.6416,341.2032,347.7648,354.3264,360.888,367.4496,374.0112,380.5728,387.1344,393.696,<br/>                        400.2576,406.8192,413.3808,419.9424,426.504,433.0656,439.6272,446.1888,452.7504,459.312,465.8736,<br/>                        472.4352,478.9968,485.5584,492.12,498.6816,505.2432,511.8048,518.3664,524.928,531.4896,538.0512,<br/>                        544.6128,551.1744,557.736,564.2976,570.8592,577.4208,583.9824,590.544,597.1056,603.6672,610.2288,<br/>                        616.7904,623.352,629.9136,636.4752,643.0368,649.5984,656.16,662.7216,669.2832,675.8448,682.4064,<br/>                        688.968,695.5296,702.0912,708.6528,715.2144,721.776,728.3376,734.8992,741.4608,748.0224,754.584,<br/>                        761.1456,767.7072,774.2688,780.8304,787.392,793.9536,800.5152,807.0768,813.6384,820.2,826.7616,<br/>                        833.3232,839.8848,846.4464,853.008,859.5696,866.1312,872.6928,879.2544,885.816,892.3776,898.9392,<br/>                        905.5008,912.0624,918.624,925.1856,931.7472,938.3088,944.8704,951.432,957.9936,964.5552,971.1168,<br/>                        977.6784,984.24,990.8016]<br/>    <br/>    <br/>            expected_result_y = [0.364712246,0.351507467,0.339214283,0.316974687,0.279954504,0.225948786,0.159949625,<br/>                                 0.123048839,0.099781801,0.071666234,0.056352938,0.03860139,0.029600805,0.024150524,<br/>                                 0.020550354,0.01795028,0.015967703,0.014467663,0.013200146,0.01215011,0.011300098,<br/>                                 0.010550085,0.009905072,0.009345065,0.008845057,0.008400051,0.008000046,0.007635043,<br/>                                 0.007300039,0.007000034,0.006725033,0.00646503,0.006230027,0.006010027,0.005805023,<br/>                                 0.005615023,0.005435021,0.00527002,0.00511002,0.004960017,0.004820017,0.004685016,<br/>                                 0.004560015,0.004440015,0.004325013,0.004220012,0.004120012,0.004020012,0.003925011,<br/>                                 0.003835011,0.00375001,0.00367001,0.00359001,0.00351001,0.003435009,0.003365009,<br/>                                 0.003300007,0.003235009,0.003170007,0.003110007,0.003055006,0.003000007,0.002945006,<br/>                                 0.002895006,0.002845006,0.002795006,0.002745006,0.002695006,0.002650005,0.002610005,<br/>                                 0.002570005,0.002525006,0.002485004,0.002450005,0.002410005,0.002370005,0.002335004,<br/>                                 0.002300005,0.002265004,0.002235004,0.002205004,0.002175004,0.002145004,0.002115004,<br/>                                 0.002085004,0.002055004,0.002025004,0.002000002,0.001975004,0.001945004,0.001920002,<br/>                                 0.001900002,0.001875004,0.001850002,0.001830002,0.001805004,0.001780002,0.001760002,<br/>                                 0.001740002,0.001720002,0.001700002,0.001680002,0.001660002,0.001640002,0.001620002,<br/>                                 0.001605001,0.001590002,0.001570002,0.001550002,0.001535001,0.001520002,0.001500002,<br/>                                 0.001485001,0.001470002,0.001455001,0.001440002,0.001425001,0.001410002,0.001395001,<br/>                                 0.001385001,0.001370002,0.001355001,0.001340002,0.001325001,0.001315001,0.001305001,<br/>                                 0.001290002,0.001275001,0.001265001,0.001255001,0.001245001,0.001230002,0.001215001,<br/>                                 0.001205001,0.001195001,0.001185001,0.001175001,0.001165001,0.001155001,0.001145001,<br/>                                 0.001135001,0.001125001,0.001115001,0.001105001,0.001095001,0.001085001,0.001075001,<br/>                                 0.001065001,0.00106,0.001055001,0.001045001,0.001035001,0.001025001,0.001015001,<br/>                                 0.001005001,0.0009985,0.000993001,0.000985001,0.000977001,0.000969501]<br/>    <br/>            expected_result_npts = 160<br/>            expected_x_dist_of_interest = 990.8016<br/>    <br/>    <br/>            x_dist = 6.56<br/>            weighted_avg = 0.0009697  #this is the running average value we&#x27;re looking for<br/>            agdrift_empty.distance_name = &#x27;distance_ft&#x27;<br/>            agdrift_empty.scenario_name = &#x27;ground_low_vf&#x27;<br/>            agdrift_empty.num_db_values = 161<br/>            agdrift_empty.find_nearest_x = True<br/>            x_array_in = agdrift_empty.get_distances(agdrift_empty.num_db_values)<br/>            y_array_in = agdrift_empty.get_scenario_deposition_data(agdrift_empty.scenario_name, agdrift_empty.num_db_values)<br/>    <br/>            x_array_out, y_array_out, npts_out, x_dist_of_interest, range_chk = \<br/>                agdrift_empty.locate_integrated_avg(agdrift_empty.num_db_values, x_array_in, y_array_in, x_dist, weighted_avg)<br/>    <br/>            npt.assert_array_equal(expected_x_dist_of_interest, x_dist_of_interest, verbose=True)<br/>            npt.assert_array_equal(expected_result_npts, npts_out, verbose=True)<br/>            npt.assert_allclose(x_array_out, expected_result_x, rtol=1e-5, atol=0, err_msg=&#x27;&#x27;, verbose=True)<br/>            npt.assert_allclose(y_array_out, expected_result_y, rtol=1e-5, atol=0, err_msg=&#x27;&#x27;, verbose=True)<br/>        finally:<br/>            pass<br/>            tab1 = [x_array_out, expected_result_x]<br/>            tab2 = [y_array_out, expected_result_y]<br/>            print(&quot;\n&quot;)<br/>            print(inspect.currentframe().f_code.co_name)<br/>&gt;           print(&#x27;expected {0} x-units to area and got {1} &#x27;.format(expected_x_dist_of_interest, x_dist_of_interest))<br/><span class="error">E           UnboundLocalError: local variable &#x27;x_dist_of_interest&#x27; referenced before assignment</span><br/><br/>ubertool\ubertool\agdrift\tests\test_agdrift_unittest.py:1463: UnboundLocalError<br/>----------------------------- Captured stdout call -----------------------------<br/>
+            <div class="log">self = &lt;qed_pram.ubertool_ecorest.ubertool.ubertool.agdrift.tests.test_agdrift_unittest.TestAgdrift testMethod=test_locate_integrated_avg&gt;<br/><br/>    def test_locate_integrated_avg(self):<br/>        &quot;&quot;&quot;<br/>            :description retrieves values for distance and the first deposition scenario from the sql database<br/>                         and generates running weighted averages from the first x,y value until it locates the user<br/>                         specified integrated average of interest<br/>            :param num_db_values: number of distance values to be retrieved<br/>            :param distance_name: name of column in sql database that contains the distance values<br/>            :NOTE any blank fields are filled with &#x27;nan&#x27;<br/>            :return:<br/>            &quot;&quot;&quot;<br/>    <br/>        # create empty pandas dataframes to create empty object for this unittest<br/>        agdrift_empty = self.create_agdrift_object()<br/>    <br/>        agdrift_empty.db_name = &#x27;sqlite:///../sqlite_agdrift_distance.db&#x27;<br/>        agdrift_empty.db_table = &#x27;output&#x27;<br/>    <br/>        expected_result_x = pd.Series([], dtype=&#x27;float&#x27;)<br/>        expected_result_y = pd.Series([], dtype=&#x27;float&#x27;)<br/>        expected_result_npts = pd.Series([], dtype=&#x27;object&#x27;)<br/>    <br/>        x_array_in = pd.Series([], dtype=&#x27;float&#x27;)<br/>        y_array_in = pd.Series([], dtype=&#x27;float&#x27;)<br/>        x_array_out = pd.Series([], dtype=&#x27;float&#x27;)<br/>        y_array_out = pd.Series([], dtype=&#x27;float&#x27;)<br/>    <br/>        try:<br/>    <br/>            expected_result_x = [0.,0.102525,0.20505,0.4101,0.8202,1.6404,3.2808,4.9212,6.5616,9.8424,13.1232,19.6848,26.2464,<br/>                        32.808,39.3696,45.9312,52.4928,59.0544,65.616,72.1776,78.7392,85.3008,91.8624,98.424,104.9856,<br/>                        111.5472,118.1088,124.6704,131.232,137.7936,144.3552,150.9168,157.4784,164.04,170.6016,177.1632,<br/>                        183.7248,190.2864,196.848,203.4096,209.9712,216.5328,223.0944,229.656,236.2176,242.7792,249.3408,<br/>                        255.9024,262.464,269.0256,275.5872,282.1488,288.7104,295.272,301.8336,308.3952,314.9568,321.5184,<br/>                        328.08,334.6416,341.2032,347.7648,354.3264,360.888,367.4496,374.0112,380.5728,387.1344,393.696,<br/>                        400.2576,406.8192,413.3808,419.9424,426.504,433.0656,439.6272,446.1888,452.7504,459.312,465.8736,<br/>                        472.4352,478.9968,485.5584,492.12,498.6816,505.2432,511.8048,518.3664,524.928,531.4896,538.0512,<br/>                        544.6128,551.1744,557.736,564.2976,570.8592,577.4208,583.9824,590.544,597.1056,603.6672,610.2288,<br/>                        616.7904,623.352,629.9136,636.4752,643.0368,649.5984,656.16,662.7216,669.2832,675.8448,682.4064,<br/>                        688.968,695.5296,702.0912,708.6528,715.2144,721.776,728.3376,734.8992,741.4608,748.0224,754.584,<br/>                        761.1456,767.7072,774.2688,780.8304,787.392,793.9536,800.5152,807.0768,813.6384,820.2,826.7616,<br/>                        833.3232,839.8848,846.4464,853.008,859.5696,866.1312,872.6928,879.2544,885.816,892.3776,898.9392,<br/>                        905.5008,912.0624,918.624,925.1856,931.7472,938.3088,944.8704,951.432,957.9936,964.5552,971.1168,<br/>                        977.6784,984.24,990.8016]<br/>    <br/>    <br/>            expected_result_y = [0.364712246,0.351507467,0.339214283,0.316974687,0.279954504,0.225948786,0.159949625,<br/>                                 0.123048839,0.099781801,0.071666234,0.056352938,0.03860139,0.029600805,0.024150524,<br/>                                 0.020550354,0.01795028,0.015967703,0.014467663,0.013200146,0.01215011,0.011300098,<br/>                                 0.010550085,0.009905072,0.009345065,0.008845057,0.008400051,0.008000046,0.007635043,<br/>                                 0.007300039,0.007000034,0.006725033,0.00646503,0.006230027,0.006010027,0.005805023,<br/>                                 0.005615023,0.005435021,0.00527002,0.00511002,0.004960017,0.004820017,0.004685016,<br/>                                 0.004560015,0.004440015,0.004325013,0.004220012,0.004120012,0.004020012,0.003925011,<br/>                                 0.003835011,0.00375001,0.00367001,0.00359001,0.00351001,0.003435009,0.003365009,<br/>                                 0.003300007,0.003235009,0.003170007,0.003110007,0.003055006,0.003000007,0.002945006,<br/>                                 0.002895006,0.002845006,0.002795006,0.002745006,0.002695006,0.002650005,0.002610005,<br/>                                 0.002570005,0.002525006,0.002485004,0.002450005,0.002410005,0.002370005,0.002335004,<br/>                                 0.002300005,0.002265004,0.002235004,0.002205004,0.002175004,0.002145004,0.002115004,<br/>                                 0.002085004,0.002055004,0.002025004,0.002000002,0.001975004,0.001945004,0.001920002,<br/>                                 0.001900002,0.001875004,0.001850002,0.001830002,0.001805004,0.001780002,0.001760002,<br/>                                 0.001740002,0.001720002,0.001700002,0.001680002,0.001660002,0.001640002,0.001620002,<br/>                                 0.001605001,0.001590002,0.001570002,0.001550002,0.001535001,0.001520002,0.001500002,<br/>                                 0.001485001,0.001470002,0.001455001,0.001440002,0.001425001,0.001410002,0.001395001,<br/>                                 0.001385001,0.001370002,0.001355001,0.001340002,0.001325001,0.001315001,0.001305001,<br/>                                 0.001290002,0.001275001,0.001265001,0.001255001,0.001245001,0.001230002,0.001215001,<br/>                                 0.001205001,0.001195001,0.001185001,0.001175001,0.001165001,0.001155001,0.001145001,<br/>                                 0.001135001,0.001125001,0.001115001,0.001105001,0.001095001,0.001085001,0.001075001,<br/>                                 0.001065001,0.00106,0.001055001,0.001045001,0.001035001,0.001025001,0.001015001,<br/>                                 0.001005001,0.0009985,0.000993001,0.000985001,0.000977001,0.000969501]<br/>    <br/>            expected_result_npts = 160<br/>            expected_x_dist_of_interest = 990.8016<br/>    <br/>    <br/>            x_dist = 6.56<br/>            weighted_avg = 0.0009697  #this is the running average value we&#x27;re looking for<br/>            agdrift_empty.distance_name = &#x27;distance_ft&#x27;<br/>            agdrift_empty.scenario_name = &#x27;ground_low_vf&#x27;<br/>            agdrift_empty.num_db_values = 161<br/>            agdrift_empty.find_nearest_x = True<br/>&gt;           x_array_in = agdrift_empty.get_distances(agdrift_empty.num_db_values)<br/><br/>ubertool\ubertool\agdrift\tests\test_agdrift_unittest.py:1447: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/><br/>self = &lt;qed_pram.ubertool_ecorest.ubertool.ubertool.agdrift.agdrift_exe.Agdrift object at 0x000002CFCF8390B8&gt;<br/>num_values = 161<br/><br/>    def get_distances(self, num_values):<br/>        &quot;&quot;&quot;<br/>            :description retrieves distance values for deposition scenario datasets<br/>            :            all scenarios use same distances<br/>            :param num_values: number of distance values to be retrieved<br/>            :param distance_name: name of column in sql database that contains the distance values<br/>            :NOTE any blank fields are filled with &#x27;nan&#x27;<br/>            :return:<br/>            &quot;&quot;&quot;<br/>        conn = sqlite3.connect(self.db_name)<br/>        cursor = conn.cursor()<br/>&gt;       result = cursor.execute(&quot;SELECT &quot; + self.distance_name + &quot; from &quot; + self.db_table)<br/><span class="error">E       sqlite3.OperationalError: no such table: output</span><br/><br/>ubertool\ubertool\agdrift\agdrift_functions.py:723: OperationalError<br/><br/>During handling of the above exception, another exception occurred:<br/><br/>self = &lt;qed_pram.ubertool_ecorest.ubertool.ubertool.agdrift.tests.test_agdrift_unittest.TestAgdrift testMethod=test_locate_integrated_avg&gt;<br/><br/>    def test_locate_integrated_avg(self):<br/>        &quot;&quot;&quot;<br/>            :description retrieves values for distance and the first deposition scenario from the sql database<br/>                         and generates running weighted averages from the first x,y value until it locates the user<br/>                         specified integrated average of interest<br/>            :param num_db_values: number of distance values to be retrieved<br/>            :param distance_name: name of column in sql database that contains the distance values<br/>            :NOTE any blank fields are filled with &#x27;nan&#x27;<br/>            :return:<br/>            &quot;&quot;&quot;<br/>    <br/>        # create empty pandas dataframes to create empty object for this unittest<br/>        agdrift_empty = self.create_agdrift_object()<br/>    <br/>        agdrift_empty.db_name = &#x27;sqlite:///../sqlite_agdrift_distance.db&#x27;<br/>        agdrift_empty.db_table = &#x27;output&#x27;<br/>    <br/>        expected_result_x = pd.Series([], dtype=&#x27;float&#x27;)<br/>        expected_result_y = pd.Series([], dtype=&#x27;float&#x27;)<br/>        expected_result_npts = pd.Series([], dtype=&#x27;object&#x27;)<br/>    <br/>        x_array_in = pd.Series([], dtype=&#x27;float&#x27;)<br/>        y_array_in = pd.Series([], dtype=&#x27;float&#x27;)<br/>        x_array_out = pd.Series([], dtype=&#x27;float&#x27;)<br/>        y_array_out = pd.Series([], dtype=&#x27;float&#x27;)<br/>    <br/>        try:<br/>    <br/>            expected_result_x = [0.,0.102525,0.20505,0.4101,0.8202,1.6404,3.2808,4.9212,6.5616,9.8424,13.1232,19.6848,26.2464,<br/>                        32.808,39.3696,45.9312,52.4928,59.0544,65.616,72.1776,78.7392,85.3008,91.8624,98.424,104.9856,<br/>                        111.5472,118.1088,124.6704,131.232,137.7936,144.3552,150.9168,157.4784,164.04,170.6016,177.1632,<br/>                        183.7248,190.2864,196.848,203.4096,209.9712,216.5328,223.0944,229.656,236.2176,242.7792,249.3408,<br/>                        255.9024,262.464,269.0256,275.5872,282.1488,288.7104,295.272,301.8336,308.3952,314.9568,321.5184,<br/>                        328.08,334.6416,341.2032,347.7648,354.3264,360.888,367.4496,374.0112,380.5728,387.1344,393.696,<br/>                        400.2576,406.8192,413.3808,419.9424,426.504,433.0656,439.6272,446.1888,452.7504,459.312,465.8736,<br/>                        472.4352,478.9968,485.5584,492.12,498.6816,505.2432,511.8048,518.3664,524.928,531.4896,538.0512,<br/>                        544.6128,551.1744,557.736,564.2976,570.8592,577.4208,583.9824,590.544,597.1056,603.6672,610.2288,<br/>                        616.7904,623.352,629.9136,636.4752,643.0368,649.5984,656.16,662.7216,669.2832,675.8448,682.4064,<br/>                        688.968,695.5296,702.0912,708.6528,715.2144,721.776,728.3376,734.8992,741.4608,748.0224,754.584,<br/>                        761.1456,767.7072,774.2688,780.8304,787.392,793.9536,800.5152,807.0768,813.6384,820.2,826.7616,<br/>                        833.3232,839.8848,846.4464,853.008,859.5696,866.1312,872.6928,879.2544,885.816,892.3776,898.9392,<br/>                        905.5008,912.0624,918.624,925.1856,931.7472,938.3088,944.8704,951.432,957.9936,964.5552,971.1168,<br/>                        977.6784,984.24,990.8016]<br/>    <br/>    <br/>            expected_result_y = [0.364712246,0.351507467,0.339214283,0.316974687,0.279954504,0.225948786,0.159949625,<br/>                                 0.123048839,0.099781801,0.071666234,0.056352938,0.03860139,0.029600805,0.024150524,<br/>                                 0.020550354,0.01795028,0.015967703,0.014467663,0.013200146,0.01215011,0.011300098,<br/>                                 0.010550085,0.009905072,0.009345065,0.008845057,0.008400051,0.008000046,0.007635043,<br/>                                 0.007300039,0.007000034,0.006725033,0.00646503,0.006230027,0.006010027,0.005805023,<br/>                                 0.005615023,0.005435021,0.00527002,0.00511002,0.004960017,0.004820017,0.004685016,<br/>                                 0.004560015,0.004440015,0.004325013,0.004220012,0.004120012,0.004020012,0.003925011,<br/>                                 0.003835011,0.00375001,0.00367001,0.00359001,0.00351001,0.003435009,0.003365009,<br/>                                 0.003300007,0.003235009,0.003170007,0.003110007,0.003055006,0.003000007,0.002945006,<br/>                                 0.002895006,0.002845006,0.002795006,0.002745006,0.002695006,0.002650005,0.002610005,<br/>                                 0.002570005,0.002525006,0.002485004,0.002450005,0.002410005,0.002370005,0.002335004,<br/>                                 0.002300005,0.002265004,0.002235004,0.002205004,0.002175004,0.002145004,0.002115004,<br/>                                 0.002085004,0.002055004,0.002025004,0.002000002,0.001975004,0.001945004,0.001920002,<br/>                                 0.001900002,0.001875004,0.001850002,0.001830002,0.001805004,0.001780002,0.001760002,<br/>                                 0.001740002,0.001720002,0.001700002,0.001680002,0.001660002,0.001640002,0.001620002,<br/>                                 0.001605001,0.001590002,0.001570002,0.001550002,0.001535001,0.001520002,0.001500002,<br/>                                 0.001485001,0.001470002,0.001455001,0.001440002,0.001425001,0.001410002,0.001395001,<br/>                                 0.001385001,0.001370002,0.001355001,0.001340002,0.001325001,0.001315001,0.001305001,<br/>                                 0.001290002,0.001275001,0.001265001,0.001255001,0.001245001,0.001230002,0.001215001,<br/>                                 0.001205001,0.001195001,0.001185001,0.001175001,0.001165001,0.001155001,0.001145001,<br/>                                 0.001135001,0.001125001,0.001115001,0.001105001,0.001095001,0.001085001,0.001075001,<br/>                                 0.001065001,0.00106,0.001055001,0.001045001,0.001035001,0.001025001,0.001015001,<br/>                                 0.001005001,0.0009985,0.000993001,0.000985001,0.000977001,0.000969501]<br/>    <br/>            expected_result_npts = 160<br/>            expected_x_dist_of_interest = 990.8016<br/>    <br/>    <br/>            x_dist = 6.56<br/>            weighted_avg = 0.0009697  #this is the running average value we&#x27;re looking for<br/>            agdrift_empty.distance_name = &#x27;distance_ft&#x27;<br/>            agdrift_empty.scenario_name = &#x27;ground_low_vf&#x27;<br/>            agdrift_empty.num_db_values = 161<br/>            agdrift_empty.find_nearest_x = True<br/>            x_array_in = agdrift_empty.get_distances(agdrift_empty.num_db_values)<br/>            y_array_in = agdrift_empty.get_scenario_deposition_data(agdrift_empty.scenario_name, agdrift_empty.num_db_values)<br/>    <br/>            x_array_out, y_array_out, npts_out, x_dist_of_interest, range_chk = \<br/>                agdrift_empty.locate_integrated_avg(agdrift_empty.num_db_values, x_array_in, y_array_in, x_dist, weighted_avg)<br/>    <br/>            npt.assert_array_equal(expected_x_dist_of_interest, x_dist_of_interest, verbose=True)<br/>            npt.assert_array_equal(expected_result_npts, npts_out, verbose=True)<br/>            npt.assert_allclose(x_array_out, expected_result_x, rtol=1e-5, atol=0, err_msg=&#x27;&#x27;, verbose=True)<br/>            npt.assert_allclose(y_array_out, expected_result_y, rtol=1e-5, atol=0, err_msg=&#x27;&#x27;, verbose=True)<br/>        finally:<br/>            pass<br/>            tab1 = [x_array_out, expected_result_x]<br/>            tab2 = [y_array_out, expected_result_y]<br/>            print(&quot;\n&quot;)<br/>            print(inspect.currentframe().f_code.co_name)<br/>&gt;           print(&#x27;expected {0} x-units to area and got {1} &#x27;.format(expected_x_dist_of_interest, x_dist_of_interest))<br/><span class="error">E           UnboundLocalError: local variable &#x27;x_dist_of_interest&#x27; referenced before assignment</span><br/><br/>ubertool\ubertool\agdrift\tests\test_agdrift_unittest.py:1463: UnboundLocalError<br/>----------------------------- Captured stdout call -----------------------------<br/>
 
 test_locate_integrated_avg
 </div></td></tr></tbody>
@@ -291,7 +448,7 @@ test_locate_integrated_avg
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg1</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.04</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -375,7 +532,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::tested_chronic_dose_based_tox_mammals</td>
-          <td class="col-duration">0.09</td>
+          <td class="col-duration">0.08</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -474,7 +631,7 @@ test_stir_estimated_avian_inhalation_ld50
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/stir/tests/test_stir_unittest.py::TestStir::test_stir_calc_adjusted_avian_inhalation_ld50</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -588,7 +745,7 @@ test_animal_dietary_intake
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_calc_eec_tox_frac</td>
-          <td class="col-duration">0.07</td>
+          <td class="col-duration">0.08</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -624,7 +781,7 @@ test_calc_maxeec_distance
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_calc_plant_risk_distance</td>
-          <td class="col-duration">0.04</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -642,7 +799,7 @@ nan    0  0.229889
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_initial_canopy_air</td>
-          <td class="col-duration">0.04</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -678,7 +835,7 @@ test_conc_initial_plant
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_initial_soil_h2o</td>
-          <td class="col-duration">0.04</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -714,7 +871,7 @@ test_conc_timestep
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_animal_dose_timeseries</td>
-          <td class="col-duration">0.27</td>
+          <td class="col-duration">0.29</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -750,7 +907,7 @@ test_daily_animal_dose_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_app_flag</td>
-          <td class="col-duration">0.14</td>
+          <td class="col-duration">0.17</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -786,7 +943,7 @@ test_daily_app_flag
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_canopy_air_timeseries</td>
-          <td class="col-duration">0.27</td>
+          <td class="col-duration">0.33</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -822,7 +979,7 @@ test_daily_canopy_air_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_plant_dew_timeseries</td>
-          <td class="col-duration">0.23</td>
+          <td class="col-duration">0.31</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -858,7 +1015,7 @@ test_daily_plant_dew_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_plant_timeseries</td>
-          <td class="col-duration">0.21</td>
+          <td class="col-duration">0.30</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -894,7 +1051,7 @@ test_daily_plant_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_h2o_timeseries</td>
-          <td class="col-duration">0.23</td>
+          <td class="col-duration">0.30</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -930,7 +1087,7 @@ test_daily_soil_h2o_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_inv_timeseries</td>
-          <td class="col-duration">0.20</td>
+          <td class="col-duration">0.26</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -966,7 +1123,7 @@ test_daily_soil_inv_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_timeseries</td>
-          <td class="col-duration">0.20</td>
+          <td class="col-duration">0.25</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1002,7 +1159,7 @@ test_daily_soil_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_drift_distance_calc</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.04</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1020,7 +1177,7 @@ test_drift_distance_calc
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_drift_parameters</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1110,7 +1267,7 @@ test_set_drift_parameters
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_max_drift_distance</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.04</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1128,7 +1285,7 @@ test_set_max_drift_distance
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_max_respire_frac</td>
-          <td class="col-duration">0.04</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1146,7 +1303,7 @@ test_set_max_respire_frac
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_sum_exceedances</td>
-          <td class="col-duration">0.09</td>
+          <td class="col-duration">0.12</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
