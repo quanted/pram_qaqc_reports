@@ -385,7 +385,7 @@ function filter_table(elem) {
     not_found_message.hidden = !all_rows_hidden;
 }
 </script>
-    <p>Report generated on 03-Apr-2018 at 11:26:22 by<a href="https://pypi.python.org/pypi/pytest-html"> pytest-html</a> v1.16.1</p>
+    <p>Report generated on 18-Apr-2018 at 15:13:04 by<a href="https://pypi.python.org/pypi/pytest-html"> pytest-html</a> v1.16.1</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
@@ -401,7 +401,7 @@ function filter_table(elem) {
         <td>Python</td>
         <td>3.6.3</td></tr></table>
     <h2>Summary</h2>
-    <p>36 tests ran in 50.35 seconds. </p>
+    <p>36 tests ran in 50.23 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">35 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -416,12 +416,12 @@ function filter_table(elem) {
       <tbody class="failed results-table-row">
         <tr>
           <td class="col-result">Failed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_integration.py::Testted::test_diet_eec_upper_min_sg_maxdaily</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_integration.py::Testted::test_diet_eec_upper_min_sg_maxdaily</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;qed_pram.flask_qed.ubertool.ubertool.ted.tests.test_ted_integration.Testted testMethod=test_diet_eec_upper_min_sg_maxdaily&gt;<br/><br/>    def test_diet_eec_upper_min_sg_maxdaily(self):<br/>        &quot;&quot;&quot;<br/>            Integration test for ted.eec_diet_sg<br/>            &quot;&quot;&quot;<br/>        try:<br/>&gt;           self.blackbox_method_int(&#x27;diet_eec_upper_min_sg_maxdaily&#x27;)<br/><br/>ubertool\ubertool\ted\tests\test_ted_integration.py:146: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/><br/>self = &lt;qed_pram.flask_qed.ubertool.ubertool.ted.tests.test_ted_integration.Testted testMethod=test_diet_eec_upper_min_sg_maxdaily&gt;<br/>output = &#x27;diet_eec_upper_min_sg_maxdaily&#x27;<br/><br/>    def blackbox_method_int(self, output):<br/>        &quot;&quot;&quot;<br/>            Helper method to reuse code for testing numpy array outputs from TerrPlant model<br/>            :param output: String; Pandas Series name (e.g. column name) without &#x27;_out&#x27;<br/>            :return:<br/>            &quot;&quot;&quot;<br/>        pd.set_option(&#x27;display.float_format&#x27;, lambda x: &#x27;{0:.10e}&#x27;.format(x))<br/>        result = ted_calc.pd_obj_out[&quot;out_&quot; + output]<br/>        expected = ted_calc.pd_obj_exp[&quot;exp_&quot; + output]<br/>        tab = pd.concat([result,expected], axis=1)<br/>        print(&quot; &quot;)<br/>        print(tabulate(tab, headers=&#x27;keys&#x27;, tablefmt=&#x27;fancy_grid&#x27;))<br/>        err_msg = str(result) + &#x27;\n&#x27; + str(expected)<br/>        # npt.assert_array_almost_equal(result, expected, 4, &#x27;&#x27;, True)<br/>        rtol = 1e-5<br/>&gt;       npt.assert_allclose(result, expected, rtol, 0, True, err_msg)<br/><span class="error">E       AssertionError: </span><br/><span class="error">E       Not equal to tolerance rtol=1e-05, atol=0</span><br/><span class="error">E       Series([], Name: out_diet_eec_upper_min_sg_maxdaily, dtype: float64)</span><br/><span class="error">E       0   8.0234000000e+01</span><br/><span class="error">E       1   8.0234000000e+01</span><br/><span class="error">E       2   8.0234000000e+01</span><br/><span class="error">E       Name: exp_diet_eec_upper_min_sg_maxdaily, dtype: float64</span><br/><span class="error">E       (shapes (0,), (3,) mismatch)</span><br/><span class="error">E        x: array([], dtype=float64)</span><br/><span class="error">E        y: array([80.234, 80.234, 80.234])</span><br/><br/>ubertool\ubertool\ted\tests\test_ted_integration.py:166: AssertionError<br/>----------------------------- Captured stdout call -----------------------------<br/> 
+            <div class="log">self = &lt;qed_pram.flask_qed.pram_flask.ubertool.ubertool.ted.tests.test_ted_integration.Testted testMethod=test_diet_eec_upper_min_sg_maxdaily&gt;<br/><br/>    def test_diet_eec_upper_min_sg_maxdaily(self):<br/>        &quot;&quot;&quot;<br/>            Integration test for ted.eec_diet_sg<br/>            &quot;&quot;&quot;<br/>        try:<br/>&gt;           self.blackbox_method_int(&#x27;diet_eec_upper_min_sg_maxdaily&#x27;)<br/><br/>pram_flask\ubertool\ubertool\ted\tests\test_ted_integration.py:146: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/><br/>self = &lt;qed_pram.flask_qed.pram_flask.ubertool.ubertool.ted.tests.test_ted_integration.Testted testMethod=test_diet_eec_upper_min_sg_maxdaily&gt;<br/>output = &#x27;diet_eec_upper_min_sg_maxdaily&#x27;<br/><br/>    def blackbox_method_int(self, output):<br/>        &quot;&quot;&quot;<br/>            Helper method to reuse code for testing numpy array outputs from TerrPlant model<br/>            :param output: String; Pandas Series name (e.g. column name) without &#x27;_out&#x27;<br/>            :return:<br/>            &quot;&quot;&quot;<br/>        pd.set_option(&#x27;display.float_format&#x27;, lambda x: &#x27;{0:.10e}&#x27;.format(x))<br/>        result = ted_calc.pd_obj_out[&quot;out_&quot; + output]<br/>        expected = ted_calc.pd_obj_exp[&quot;exp_&quot; + output]<br/>        tab = pd.concat([result,expected], axis=1)<br/>        print(&quot; &quot;)<br/>        print(tabulate(tab, headers=&#x27;keys&#x27;, tablefmt=&#x27;fancy_grid&#x27;))<br/>        err_msg = str(result) + &#x27;\n&#x27; + str(expected)<br/>        # npt.assert_array_almost_equal(result, expected, 4, &#x27;&#x27;, True)<br/>        rtol = 1e-5<br/>&gt;       npt.assert_allclose(result, expected, rtol, 0, True, err_msg)<br/><span class="error">E       AssertionError: </span><br/><span class="error">E       Not equal to tolerance rtol=1e-05, atol=0</span><br/><span class="error">E       Series([], Name: out_diet_eec_upper_min_sg_maxdaily, dtype: float64)</span><br/><span class="error">E       0   8.0234000000e+01</span><br/><span class="error">E       1   8.0234000000e+01</span><br/><span class="error">E       2   8.0234000000e+01</span><br/><span class="error">E       Name: exp_diet_eec_upper_min_sg_maxdaily, dtype: float64</span><br/><span class="error">E       (shapes (0,), (3,) mismatch)</span><br/><span class="error">E        x: array([], dtype=float64)</span><br/><span class="error">E        y: array([80.234, 80.234, 80.234])</span><br/><br/>pram_flask\ubertool\ubertool\ted\tests\test_ted_integration.py:166: AssertionError<br/>----------------------------- Captured stdout call -----------------------------<br/> 
 ╒════╤══════════════════════════════════════╤══════════════════════════════════════╕
 │    │   out_diet_eec_upper_min_sg_maxdaily │   exp_diet_eec_upper_min_sg_maxdaily │
 ╞════╪══════════════════════════════════════╪══════════════════════════════════════╡
@@ -435,8 +435,8 @@ function filter_table(elem) {
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg</td>
-          <td class="col-duration">0.24</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg</td>
+          <td class="col-duration">0.30</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -463,7 +463,7 @@ y_array result/y_array_expected
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg1</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg1</td>
           <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -491,7 +491,7 @@ y_array result/y_array_expected
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg2</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg2</td>
           <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -519,7 +519,7 @@ y_array result/y_array_expected
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg3</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg3</td>
           <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -547,7 +547,7 @@ y_array result/y_array_expected
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::tested_chronic_dose_based_tox_mammals</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::tested_chronic_dose_based_tox_mammals</td>
           <td class="col-duration">0.04</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -565,7 +565,7 @@ tested_chronic_dose_based_tox_mammals
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/stir/tests/test_stir_integration.py::TestStir::test_stir_adjusted_avian_inhalation_ld50</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/stir/tests/test_stir_integration.py::TestStir::test_stir_adjusted_avian_inhalation_ld50</td>
           <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -592,7 +592,7 @@ test_stir_adjusted_avian_inhalation_ld50
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/stir/tests/test_stir_integration.py::TestStir::test_stir_adjusted_mammal_inhalation_ld50</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/stir/tests/test_stir_integration.py::TestStir::test_stir_adjusted_mammal_inhalation_ld50</td>
           <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -619,7 +619,7 @@ test_stir_adjusted_mammal_inhalation_ld50
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/stir/tests/test_stir_integration.py::TestStir::test_stir_estimated_avian_inhalation_ld50</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/stir/tests/test_stir_integration.py::TestStir::test_stir_estimated_avian_inhalation_ld50</td>
           <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -646,7 +646,7 @@ test_stir_estimated_avian_inhalation_ld50
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/stir/tests/test_stir_unittest.py::TestStir::test_stir_calc_adjusted_avian_inhalation_ld50</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/stir/tests/test_stir_unittest.py::TestStir::test_stir_calc_adjusted_avian_inhalation_ld50</td>
           <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -664,7 +664,7 @@ test_stir_calc_adjusted_avian_inhalation_ld50
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/stir/tests/test_stir_unittest.py::TestStir::test_stir_calc_adjusted_mammal_inhalation_ld50</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/stir/tests/test_stir_unittest.py::TestStir::test_stir_calc_adjusted_mammal_inhalation_ld50</td>
           <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -682,7 +682,7 @@ test_stir_calc_adjusted_mammal_inhalation_ld50
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/stir/tests/test_stir_unittest.py::TestStir::test_stir_calc_estimated_avian_inhalation_ld50</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/stir/tests/test_stir_unittest.py::TestStir::test_stir_calc_estimated_avian_inhalation_ld50</td>
           <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -700,7 +700,7 @@ test_stir_calc_estimated_avian_inhalation_ld50
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_integration.py::Testted::test_assert_output_series</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_integration.py::Testted::test_assert_output_series</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -715,7 +715,7 @@ test_stir_calc_estimated_avian_inhalation_ld50
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_integration.py::Testted::test_assert_output_series_dtypes</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_integration.py::Testted::test_assert_output_series_dtypes</td>
           <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -724,7 +724,7 @@ test_stir_calc_estimated_avian_inhalation_ld50
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_animal_dietary_dose</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_animal_dietary_dose</td>
           <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -742,7 +742,7 @@ test_animal_dietary_dose
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_animal_dietary_intake</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_animal_dietary_intake</td>
           <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -760,7 +760,7 @@ test_animal_dietary_intake
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_calc_eec_tox_frac</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_calc_eec_tox_frac</td>
           <td class="col-duration">0.04</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -778,7 +778,7 @@ test_calc_eec_tox_frac
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_calc_maxeec_distance</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_calc_maxeec_distance</td>
           <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -796,7 +796,7 @@ test_calc_maxeec_distance
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_calc_plant_risk_distance</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_calc_plant_risk_distance</td>
           <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -814,7 +814,7 @@ nan    0  0.229889
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_initial_canopy_air</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_initial_canopy_air</td>
           <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -832,8 +832,8 @@ test_conc_initial_canopy_air
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_initial_plant</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_initial_plant</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -850,7 +850,7 @@ test_conc_initial_plant
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_initial_soil_h2o</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_initial_soil_h2o</td>
           <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -868,7 +868,7 @@ test_conc_initial_soil_h2o
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_timestep</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_timestep</td>
           <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -886,7 +886,7 @@ test_conc_timestep
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_animal_dose_timeseries</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_animal_dose_timeseries</td>
           <td class="col-duration">0.11</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -922,7 +922,7 @@ test_daily_animal_dose_timeseries
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_app_flag</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_app_flag</td>
           <td class="col-duration">0.08</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -958,7 +958,7 @@ test_daily_app_flag
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_canopy_air_timeseries</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_canopy_air_timeseries</td>
           <td class="col-duration">0.15</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -994,8 +994,8 @@ test_daily_canopy_air_timeseries
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_plant_dew_timeseries</td>
-          <td class="col-duration">0.13</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_plant_dew_timeseries</td>
+          <td class="col-duration">0.17</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1030,8 +1030,8 @@ test_daily_plant_dew_timeseries
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_plant_timeseries</td>
-          <td class="col-duration">0.13</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_plant_timeseries</td>
+          <td class="col-duration">0.15</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1066,8 +1066,8 @@ test_daily_plant_timeseries
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_h2o_timeseries</td>
-          <td class="col-duration">0.14</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_h2o_timeseries</td>
+          <td class="col-duration">0.18</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1102,8 +1102,8 @@ test_daily_soil_h2o_timeseries
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_inv_timeseries</td>
-          <td class="col-duration">0.13</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_inv_timeseries</td>
+          <td class="col-duration">0.16</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1138,7 +1138,7 @@ test_daily_soil_inv_timeseries
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_timeseries</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_timeseries</td>
           <td class="col-duration">0.13</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -1174,7 +1174,7 @@ test_daily_soil_timeseries
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_drift_distance_calc</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_drift_distance_calc</td>
           <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -1192,7 +1192,7 @@ test_drift_distance_calc
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_drift_parameters</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_drift_parameters</td>
           <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -1282,7 +1282,7 @@ test_set_drift_parameters
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_max_drift_distance</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_max_drift_distance</td>
           <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
@@ -1300,8 +1300,8 @@ test_set_max_drift_distance
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_max_respire_frac</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_max_respire_frac</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1318,8 +1318,8 @@ test_set_max_respire_frac
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_sum_exceedances</td>
-          <td class="col-duration">0.12</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_sum_exceedances</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
