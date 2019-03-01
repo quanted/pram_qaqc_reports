@@ -9,6 +9,12 @@
 	min-width: 1200px;
 	color: #999;
 }
+
+h1 {
+	font-size: 24px;
+	color: black;
+}
+
 h2 {
 	font-size: 16px;
 	color: black;
@@ -242,9 +248,10 @@ function add_collapse() {
 
     // Add show/hide link to each result
     find_all('.col-result').forEach(function(elem) {
+        var collapsed = get_query_parameter('collapsed') || 'Passed';
         var extras = elem.parentNode.nextElementSibling;
         var expandcollapse = document.createElement("span");
-        if (elem.innerHTML === 'Passed') {
+        if (collapsed.includes(elem.innerHTML)) {
             extras.classList.add("collapsed");
             expandcollapse.classList.add("expander");
         } else {
@@ -260,6 +267,11 @@ function add_collapse() {
             }
         });
     })
+}
+
+function get_query_parameter(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
 function init () {
@@ -385,24 +397,25 @@ function filter_table(elem) {
     not_found_message.hidden = !all_rows_hidden;
 }
 </script>
-    <p>Report generated on 18-Apr-2018 at 15:13:04 by<a href="https://pypi.python.org/pypi/pytest-html"> pytest-html</a> v1.16.1</p>
+    <h1>ted.html</h1>
+    <p>Report generated on 01-Mar-2019 at 11:36:25 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v1.20.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
         <td>Packages</td>
-        <td>{&apos;pytest&apos;: &apos;3.4.2&apos;, &apos;py&apos;: &apos;1.5.2&apos;, &apos;pluggy&apos;: &apos;0.6.0&apos;}</td></tr>
+        <td>{&apos;pytest&apos;: &apos;4.1.1&apos;, &apos;py&apos;: &apos;1.7.0&apos;, &apos;pluggy&apos;: &apos;0.8.1&apos;}</td></tr>
       <tr>
         <td>Platform</td>
-        <td>Windows-10-10.0.14393-SP0</td></tr>
+        <td>Linux-3.10.0-957.5.1.el7.x86_64-x86_64-with-redhat-7.6-Maipo</td></tr>
       <tr>
         <td>Plugins</td>
-        <td>{&apos;metadata&apos;: &apos;1.6.0&apos;, &apos;html&apos;: &apos;1.16.1&apos;, &apos;celery&apos;: &apos;4.1.0&apos;}</td></tr>
+        <td>{&apos;metadata&apos;: &apos;1.8.0&apos;, &apos;html&apos;: &apos;1.20.0&apos;, &apos;celery&apos;: &apos;4.2.1&apos;}</td></tr>
       <tr>
         <td>Python</td>
-        <td>3.6.3</td></tr></table>
+        <td>3.7.2</td></tr></table>
     <h2>Summary</h2>
-    <p>36 tests ran in 50.23 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">35 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>36 tests ran in 61.00 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">34 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">2 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -421,7 +434,7 @@ function filter_table(elem) {
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;qed_pram.flask_qed.pram_flask.ubertool.ubertool.ted.tests.test_ted_integration.Testted testMethod=test_diet_eec_upper_min_sg_maxdaily&gt;<br/><br/>    def test_diet_eec_upper_min_sg_maxdaily(self):<br/>        &quot;&quot;&quot;<br/>            Integration test for ted.eec_diet_sg<br/>            &quot;&quot;&quot;<br/>        try:<br/>&gt;           self.blackbox_method_int(&#x27;diet_eec_upper_min_sg_maxdaily&#x27;)<br/><br/>pram_flask\ubertool\ubertool\ted\tests\test_ted_integration.py:146: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br/><br/>self = &lt;qed_pram.flask_qed.pram_flask.ubertool.ubertool.ted.tests.test_ted_integration.Testted testMethod=test_diet_eec_upper_min_sg_maxdaily&gt;<br/>output = &#x27;diet_eec_upper_min_sg_maxdaily&#x27;<br/><br/>    def blackbox_method_int(self, output):<br/>        &quot;&quot;&quot;<br/>            Helper method to reuse code for testing numpy array outputs from TerrPlant model<br/>            :param output: String; Pandas Series name (e.g. column name) without &#x27;_out&#x27;<br/>            :return:<br/>            &quot;&quot;&quot;<br/>        pd.set_option(&#x27;display.float_format&#x27;, lambda x: &#x27;{0:.10e}&#x27;.format(x))<br/>        result = ted_calc.pd_obj_out[&quot;out_&quot; + output]<br/>        expected = ted_calc.pd_obj_exp[&quot;exp_&quot; + output]<br/>        tab = pd.concat([result,expected], axis=1)<br/>        print(&quot; &quot;)<br/>        print(tabulate(tab, headers=&#x27;keys&#x27;, tablefmt=&#x27;fancy_grid&#x27;))<br/>        err_msg = str(result) + &#x27;\n&#x27; + str(expected)<br/>        # npt.assert_array_almost_equal(result, expected, 4, &#x27;&#x27;, True)<br/>        rtol = 1e-5<br/>&gt;       npt.assert_allclose(result, expected, rtol, 0, True, err_msg)<br/><span class="error">E       AssertionError: </span><br/><span class="error">E       Not equal to tolerance rtol=1e-05, atol=0</span><br/><span class="error">E       Series([], Name: out_diet_eec_upper_min_sg_maxdaily, dtype: float64)</span><br/><span class="error">E       0   8.0234000000e+01</span><br/><span class="error">E       1   8.0234000000e+01</span><br/><span class="error">E       2   8.0234000000e+01</span><br/><span class="error">E       Name: exp_diet_eec_upper_min_sg_maxdaily, dtype: float64</span><br/><span class="error">E       (shapes (0,), (3,) mismatch)</span><br/><span class="error">E        x: array([], dtype=float64)</span><br/><span class="error">E        y: array([80.234, 80.234, 80.234])</span><br/><br/>pram_flask\ubertool\ubertool\ted\tests\test_ted_integration.py:166: AssertionError<br/>----------------------------- Captured stdout call -----------------------------<br/> 
+            <div class="log">self = &lt;qed.flask_qed.pram_flask.ubertool.ubertool.ted.tests.test_ted_integration.Testted testMethod=test_diet_eec_upper_min_sg_maxdaily&gt;<br/><br/>    def test_diet_eec_upper_min_sg_maxdaily(self):<br/>        &quot;&quot;&quot;<br/>        Integration test for ted.eec_diet_sg<br/>        &quot;&quot;&quot;<br/>        try:<br/>&gt;           self.blackbox_method_int(&#x27;diet_eec_upper_min_sg_maxdaily&#x27;)<br/><br/>pram_flask/ubertool/ubertool/ted/tests/test_ted_integration.py:147: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;qed.flask_qed.pram_flask.ubertool.ubertool.ted.tests.test_ted_integration.Testted testMethod=test_diet_eec_upper_min_sg_maxdaily&gt;, output = &#x27;diet_eec_upper_min_sg_maxdaily&#x27;<br/><br/>    def blackbox_method_int(self, output):<br/>        &quot;&quot;&quot;<br/>        Helper method to reuse code for testing numpy array outputs from TerrPlant model<br/>        :param output: String; Pandas Series name (e.g. column name) without &#x27;_out&#x27;<br/>        :return:<br/>        &quot;&quot;&quot;<br/>        pd.set_option(&#x27;display.float_format&#x27;, lambda x: &#x27;{0:.10e}&#x27;.format(x))<br/>        result = ted_calc.pd_obj_out[&quot;out_&quot; + output]<br/>        expected = ted_calc.pd_obj_exp[&quot;exp_&quot; + output]<br/>        tab = pd.concat([result,expected], axis=1)<br/>        print(&quot; &quot;)<br/>        print(tabulate(tab, headers=&#x27;keys&#x27;, tablefmt=&#x27;fancy_grid&#x27;))<br/>        err_msg = str(result) + &#x27;\n&#x27; + str(expected)<br/>        # npt.assert_array_almost_equal(result, expected, 4, &#x27;&#x27;, True)<br/>        rtol = 1e-5<br/>&gt;       npt.assert_allclose(result, expected, rtol, 0, True, err_msg)<br/><span class="error">E       AssertionError: </span><br/><span class="error">E       Not equal to tolerance rtol=1e-05, atol=0</span><br/><span class="error">E       Series([], Name: out_diet_eec_upper_min_sg_maxdaily, dtype: float64)</span><br/><span class="error">E       0   8.0234000000e+01</span><br/><span class="error">E       1   8.0234000000e+01</span><br/><span class="error">E       2   8.0234000000e+01</span><br/><span class="error">E       Name: exp_diet_eec_upper_min_sg_maxdaily, dtype: float64</span><br/><span class="error">E       (shapes (0,), (3,) mismatch)</span><br/><span class="error">E        x: array([], dtype=float64)</span><br/><span class="error">E        y: array([80.234, 80.234, 80.234])</span><br/><br/>pram_flask/ubertool/ubertool/ted/tests/test_ted_integration.py:167: AssertionError<br/>----------------------------- Captured stdout call -----------------------------<br/> 
 ╒════╤══════════════════════════════════════╤══════════════════════════════════════╕
 │    │   out_diet_eec_upper_min_sg_maxdaily │   exp_diet_eec_upper_min_sg_maxdaily │
 ╞════╪══════════════════════════════════════╪══════════════════════════════════════╡
@@ -432,11 +445,101 @@ function filter_table(elem) {
 │  2 │                                  nan │                               80.234 │
 ╘════╧══════════════════════════════════════╧══════════════════════════════════════╛
 </div></td></tr></tbody>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_drift_parameters</td>
+          <td class="col-duration">0.03</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;qed.flask_qed.pram_flask.ubertool.ubertool.ted.tests.test_ted_unittest.TestTed testMethod=test_set_drift_parameters&gt;<br/><br/>    def test_set_drift_parameters(self):<br/>        &quot;&quot;&quot;<br/>        :description provides parmaeter values to use when calculating distances from edge of application source area to<br/>                     concentration of interest<br/>        :param app_method; application method (aerial/ground/airblast)<br/>        :param boom_hgt; height of boom (low/high) - &#x27;NA&#x27; if not ground application<br/>        :param drop_size; droplet spectrum for application (see list below for aerial/ground - &#x27;NA&#x27; if airblast)<br/>        :param param_a (result[i][0]; parameter a for spray drift distance calculation<br/>        :param param_b (result[i][1]; parameter b for spray drift distance calculation<br/>        :param param_c (result[i][2]; parameter c for spray drift distance calculation<br/>    <br/>        :return:<br/>        &quot;&quot;&quot;<br/>    <br/>        # create empty pandas dataframes to create empty object for this unittest<br/>        ted_empty = self.create_ted_object()<br/>    <br/>        expected_results = pd.Series([], dtype=&#x27;float&#x27;)<br/>        result = pd.Series(9*[[0.,0.,0.]], dtype=&#x27;float&#x27;)<br/>        expected_results = [[0.0292,0.822,0.6539],[0.043,1.03,0.5],[0.0721,1.0977,0.4999],[0.1014,1.1344,0.4999],<br/>                            [1.0063,0.9998,1.0193],[5.5513,0.8523,1.0079],[0.1913,1.2366,1.0552],<br/>                            [2.4154,0.9077,1.0128],[0.0351,2.4586,0.4763]]<br/>    <br/>        try:<br/>    <br/>            # input variable that change per simulation<br/>            ted_empty.app_method_min = pd.Series([&#x27;aerial&#x27;,&#x27;aerial&#x27;,&#x27;aerial&#x27;,&#x27;aerial&#x27;,&#x27;ground&#x27;,&#x27;ground&#x27;,&#x27;ground&#x27;,&#x27;ground&#x27;,&#x27;airblast&#x27;])<br/>            ted_empty.boom_hgt_min = pd.Series([&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;&#x27;,&#x27;low&#x27;,&#x27;low&#x27;,&#x27;high&#x27;,&#x27;high&#x27;,&#x27;&#x27;])<br/>            ted_empty.droplet_spec_min = pd.Series([&#x27;very_fine_to_fine&#x27;,&#x27;fine_to_medium&#x27;,&#x27;medium_to_coarse&#x27;,&#x27;coarse_to_very_coarse&#x27;,<br/>                                                    &#x27;very_fine_to_fine&#x27;,&#x27;fine_to_medium-coarse&#x27;,&#x27;very_fine_to_fine&#x27;,&#x27;fine_to_medium-coarse&#x27;,&#x27;&#x27;])<br/>    <br/>    <br/>            for i in range (9):  # test that the nine combinations are accessed<br/>&gt;               result[i][0], result[i][1], result[i][2] = ted_empty.set_drift_parameters(ted_empty.app_method_min[i], ted_empty.boom_hgt_min[i], ted_empty.droplet_spec_min[i])<br/><span class="error">E               TypeError: &#x27;tuple&#x27; object does not support item assignment</span><br/><br/>pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py:227: TypeError<br/>----------------------------- Captured stdout call -----------------------------<br/>
+
+test_set_drift_parameters
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+0                        1                   2                         3                         4                         5                         6                         7                         8
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+(0.0, 0.0, 0.0)          (0.0, 0.0, 0.0)     (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)
+[0.0292, 0.822, 0.6539]  [0.043, 1.03, 0.5]  [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+
+
+test_set_drift_parameters
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+0                        1                   2                         3                         4                         5                         6                         7                         8
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+(0.0, 0.0, 0.0)          (0.0, 0.0, 0.0)     (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)
+[0.0292, 0.822, 0.6539]  [0.043, 1.03, 0.5]  [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+
+
+test_set_drift_parameters
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+0                        1                   2                         3                         4                         5                         6                         7                         8
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+(0.0, 0.0, 0.0)          (0.0, 0.0, 0.0)     (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)
+[0.0292, 0.822, 0.6539]  [0.043, 1.03, 0.5]  [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+
+
+test_set_drift_parameters
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+0                        1                   2                         3                         4                         5                         6                         7                         8
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+(0.0, 0.0, 0.0)          (0.0, 0.0, 0.0)     (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)
+[0.0292, 0.822, 0.6539]  [0.043, 1.03, 0.5]  [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+
+
+test_set_drift_parameters
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+0                        1                   2                         3                         4                         5                         6                         7                         8
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+(0.0, 0.0, 0.0)          (0.0, 0.0, 0.0)     (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)
+[0.0292, 0.822, 0.6539]  [0.043, 1.03, 0.5]  [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+
+
+test_set_drift_parameters
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+0                        1                   2                         3                         4                         5                         6                         7                         8
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+(0.0, 0.0, 0.0)          (0.0, 0.0, 0.0)     (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)
+[0.0292, 0.822, 0.6539]  [0.043, 1.03, 0.5]  [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+
+
+test_set_drift_parameters
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+0                        1                   2                         3                         4                         5                         6                         7                         8
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+(0.0, 0.0, 0.0)          (0.0, 0.0, 0.0)     (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)
+[0.0292, 0.822, 0.6539]  [0.043, 1.03, 0.5]  [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+
+
+test_set_drift_parameters
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+0                        1                   2                         3                         4                         5                         6                         7                         8
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+(0.0, 0.0, 0.0)          (0.0, 0.0, 0.0)     (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)
+[0.0292, 0.822, 0.6539]  [0.043, 1.03, 0.5]  [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+
+
+test_set_drift_parameters
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+0                        1                   2                         3                         4                         5                         6                         7                         8
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+(0.0, 0.0, 0.0)          (0.0, 0.0, 0.0)     (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)           (0.0, 0.0, 0.0)
+[0.0292, 0.822, 0.6539]  [0.043, 1.03, 0.5]  [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
+=======================  ==================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
+</div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg</td>
-          <td class="col-duration">0.30</td>
+          <td class="col-duration">0.32</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -464,7 +567,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -492,7 +595,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg2</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -520,7 +623,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg3</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -548,7 +651,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::tested_chronic_dose_based_tox_mammals</td>
-          <td class="col-duration">0.04</td>
+          <td class="col-duration">0.06</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -559,14 +662,14 @@ tested_chronic_dose_based_tox_mammals
 0                                                                          1                                                                             2
 =========================================================================  ============================================================================  ========================================================================
 [1.04995066 0.71224971 0.46955221 0.33202355 0.25718434 0.19541784]        [45.64354646 30.9629817  20.41241452 14.43375673 11.18033989  8.49522122]     [5.42796302 3.68213981 2.42745886 1.71647262 1.32957397 1.01025775]
-[1.04995066, 0.71224971, 0.469552207, 0.33202355, 0.25718434, 0.19541784]  [45.64354646, 30.9629817, 20.41241452, 14.43375673, 11.18033989, 8.49522122]  [5.42796302, 3.68213981, 2.42745886, 1.71647262, 1.32957397, 1.01025775]
+(1.04995066, 0.71224971, 0.469552207, 0.33202355, 0.25718434, 0.19541784)  (45.64354646, 30.9629817, 20.41241452, 14.43375673, 11.18033989, 8.49522122)  (5.42796302, 3.68213981, 2.42745886, 1.71647262, 1.32957397, 1.01025775)
 =========================================================================  ============================================================================  ========================================================================
 </div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/stir/tests/test_stir_integration.py::TestStir::test_stir_adjusted_avian_inhalation_ld50</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -593,7 +696,7 @@ test_stir_adjusted_avian_inhalation_ld50
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/stir/tests/test_stir_integration.py::TestStir::test_stir_adjusted_mammal_inhalation_ld50</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -620,7 +723,7 @@ test_stir_adjusted_mammal_inhalation_ld50
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/stir/tests/test_stir_integration.py::TestStir::test_stir_estimated_avian_inhalation_ld50</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -725,7 +828,7 @@ test_stir_calc_estimated_avian_inhalation_ld50
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_animal_dietary_dose</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -743,7 +846,7 @@ test_animal_dietary_dose
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_animal_dietary_intake</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -761,7 +864,7 @@ test_animal_dietary_intake
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_calc_eec_tox_frac</td>
-          <td class="col-duration">0.04</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -797,7 +900,7 @@ test_calc_maxeec_distance
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_calc_plant_risk_distance</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -815,7 +918,7 @@ nan    0  0.229889
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_initial_canopy_air</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -851,7 +954,7 @@ test_conc_initial_plant
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_initial_soil_h2o</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -869,7 +972,7 @@ test_conc_initial_soil_h2o
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_conc_timestep</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -887,7 +990,7 @@ test_conc_timestep
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_animal_dose_timeseries</td>
-          <td class="col-duration">0.11</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -923,7 +1026,7 @@ test_daily_animal_dose_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_app_flag</td>
-          <td class="col-duration">0.08</td>
+          <td class="col-duration">0.06</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -959,7 +1062,7 @@ test_daily_app_flag
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_canopy_air_timeseries</td>
-          <td class="col-duration">0.15</td>
+          <td class="col-duration">0.10</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -995,7 +1098,7 @@ test_daily_canopy_air_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_plant_dew_timeseries</td>
-          <td class="col-duration">0.17</td>
+          <td class="col-duration">0.10</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1031,7 +1134,7 @@ test_daily_plant_dew_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_plant_timeseries</td>
-          <td class="col-duration">0.15</td>
+          <td class="col-duration">0.10</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1067,7 +1170,7 @@ test_daily_plant_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_h2o_timeseries</td>
-          <td class="col-duration">0.18</td>
+          <td class="col-duration">0.09</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1103,7 +1206,7 @@ test_daily_soil_h2o_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_inv_timeseries</td>
-          <td class="col-duration">0.16</td>
+          <td class="col-duration">0.08</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1139,7 +1242,7 @@ test_daily_soil_inv_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_daily_soil_timeseries</td>
-          <td class="col-duration">0.13</td>
+          <td class="col-duration">0.08</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1175,7 +1278,7 @@ test_daily_soil_timeseries
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_drift_distance_calc</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1192,98 +1295,8 @@ test_drift_distance_calc
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_drift_parameters</td>
-          <td class="col-duration">0.03</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">----------------------------- Captured stdout call -----------------------------<br/>
-
-test_set_drift_parameters
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-0                         1                         2                         3                         4                         5                         6                         7                         8
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-[0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]
-[0.0292, 0.822, 0.6539]   [0.043, 1.03, 0.5]        [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-
-
-test_set_drift_parameters
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-0                         1                         2                         3                         4                         5                         6                         7                         8
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-[0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]
-[0.0292, 0.822, 0.6539]   [0.043, 1.03, 0.5]        [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-
-
-test_set_drift_parameters
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-0                         1                         2                         3                         4                         5                         6                         7                         8
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-[0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]
-[0.0292, 0.822, 0.6539]   [0.043, 1.03, 0.5]        [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-
-
-test_set_drift_parameters
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-0                         1                         2                         3                         4                         5                         6                         7                         8
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-[0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]
-[0.0292, 0.822, 0.6539]   [0.043, 1.03, 0.5]        [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-
-
-test_set_drift_parameters
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-0                         1                         2                         3                         4                         5                         6                         7                         8
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-[0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]
-[0.0292, 0.822, 0.6539]   [0.043, 1.03, 0.5]        [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-
-
-test_set_drift_parameters
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-0                         1                         2                         3                         4                         5                         6                         7                         8
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-[0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]
-[0.0292, 0.822, 0.6539]   [0.043, 1.03, 0.5]        [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-
-
-test_set_drift_parameters
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-0                         1                         2                         3                         4                         5                         6                         7                         8
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-[0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]
-[0.0292, 0.822, 0.6539]   [0.043, 1.03, 0.5]        [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-
-
-test_set_drift_parameters
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-0                         1                         2                         3                         4                         5                         6                         7                         8
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-[0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]
-[0.0292, 0.822, 0.6539]   [0.043, 1.03, 0.5]        [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-
-
-test_set_drift_parameters
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-0                         1                         2                         3                         4                         5                         6                         7                         8
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-[0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]  [0.0351, 2.4586, 0.4763]
-[0.0292, 0.822, 0.6539]   [0.043, 1.03, 0.5]        [0.0721, 1.0977, 0.4999]  [0.1014, 1.1344, 0.4999]  [1.0063, 0.9998, 1.0193]  [5.5513, 0.8523, 1.0079]  [0.1913, 1.2366, 1.0552]  [2.4154, 0.9077, 1.0128]  [0.0351, 2.4586, 0.4763]
-========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================  ========================
-</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_set_max_drift_distance</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1319,7 +1332,7 @@ test_set_max_respire_frac
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/ted/tests/test_ted_unittest.py::TestTed::test_sum_exceedances</td>
-          <td class="col-duration">0.07</td>
+          <td class="col-duration">0.09</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">

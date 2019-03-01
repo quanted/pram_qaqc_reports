@@ -9,6 +9,12 @@
 	min-width: 1200px;
 	color: #999;
 }
+
+h1 {
+	font-size: 24px;
+	color: black;
+}
+
 h2 {
 	font-size: 16px;
 	color: black;
@@ -242,9 +248,10 @@ function add_collapse() {
 
     // Add show/hide link to each result
     find_all('.col-result').forEach(function(elem) {
+        var collapsed = get_query_parameter('collapsed') || 'Passed';
         var extras = elem.parentNode.nextElementSibling;
         var expandcollapse = document.createElement("span");
-        if (elem.innerHTML === 'Passed') {
+        if (collapsed.includes(elem.innerHTML)) {
             extras.classList.add("collapsed");
             expandcollapse.classList.add("expander");
         } else {
@@ -260,6 +267,11 @@ function add_collapse() {
             }
         });
     })
+}
+
+function get_query_parameter(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
 function init () {
@@ -385,23 +397,24 @@ function filter_table(elem) {
     not_found_message.hidden = !all_rows_hidden;
 }
 </script>
-    <p>Report generated on 18-Apr-2018 at 15:15:37 by<a href="https://pypi.python.org/pypi/pytest-html"> pytest-html</a> v1.16.1</p>
+    <h1>trex.html</h1>
+    <p>Report generated on 01-Mar-2019 at 11:39:29 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v1.20.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
         <td>Packages</td>
-        <td>{&apos;pytest&apos;: &apos;3.4.2&apos;, &apos;py&apos;: &apos;1.5.2&apos;, &apos;pluggy&apos;: &apos;0.6.0&apos;}</td></tr>
+        <td>{&apos;pytest&apos;: &apos;4.1.1&apos;, &apos;py&apos;: &apos;1.7.0&apos;, &apos;pluggy&apos;: &apos;0.8.1&apos;}</td></tr>
       <tr>
         <td>Platform</td>
-        <td>Windows-10-10.0.14393-SP0</td></tr>
+        <td>Linux-3.10.0-957.5.1.el7.x86_64-x86_64-with-redhat-7.6-Maipo</td></tr>
       <tr>
         <td>Plugins</td>
-        <td>{&apos;metadata&apos;: &apos;1.6.0&apos;, &apos;html&apos;: &apos;1.16.1&apos;, &apos;celery&apos;: &apos;4.1.0&apos;}</td></tr>
+        <td>{&apos;metadata&apos;: &apos;1.8.0&apos;, &apos;html&apos;: &apos;1.20.0&apos;, &apos;celery&apos;: &apos;4.2.1&apos;}</td></tr>
       <tr>
         <td>Python</td>
-        <td>3.6.3</td></tr></table>
+        <td>3.7.2</td></tr></table>
     <h2>Summary</h2>
-    <p>195 tests ran in 49.54 seconds. </p>
+    <p>195 tests ran in 61.64 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">195 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -450,7 +463,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_bird_ar_md</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -516,7 +529,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_bird_bp_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -615,7 +628,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_bird_fp_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -648,7 +661,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_bird_fp_mdg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -714,7 +727,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_bird_se_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -780,7 +793,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_bird_se_sm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -846,7 +859,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_bird_sg_md</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1011,7 +1024,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_diet_bird_ar_a</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1077,7 +1090,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_diet_bird_bp_a</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1143,7 +1156,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_diet_bird_fp_a</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1176,7 +1189,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_diet_bird_fp_c</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1275,7 +1288,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_diet_bird_tg_a</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1341,7 +1354,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_diet_mamm_ar</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1506,7 +1519,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_dose_mamm_ar_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1572,7 +1585,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_dose_mamm_ar_sm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1638,7 +1651,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_dose_mamm_bp_md</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1737,7 +1750,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_dose_mamm_fp_md</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1770,7 +1783,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_dose_mamm_fp_sm</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1803,7 +1816,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_dose_mamm_se_lg</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1836,7 +1849,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_dose_mamm_se_md</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1869,7 +1882,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_dose_mamm_se_sm</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1935,7 +1948,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_dose_mamm_sg_md</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2034,7 +2047,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_arq_dose_mamm_tg_md</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2100,7 +2113,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_assert_output_series</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2447,7 +2460,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_assert_output_series_dtypes</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2588,7 +2601,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_crq_diet_mamm_tg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2654,7 +2667,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_crq_dose_mamm_ar_md</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2819,7 +2832,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_crq_dose_mamm_fp_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2918,7 +2931,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_crq_dose_mamm_se_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2984,7 +2997,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_crq_dose_mamm_se_sm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3083,7 +3096,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_crq_dose_mamm_sg_sm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3182,7 +3195,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_crq_dose_mamm_tg_sm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3347,7 +3360,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_diet_tg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3446,7 +3459,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_bird_ar_sm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3479,7 +3492,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_bird_bp_lg</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3677,7 +3690,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_bird_se_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3776,7 +3789,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_bird_sg_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3875,7 +3888,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_bird_tg_lg</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3908,7 +3921,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_bird_tg_md</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3941,7 +3954,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_bird_tg_sm</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3974,7 +3987,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_mamm_ar_lg</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4073,7 +4086,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_mamm_bp_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4139,7 +4152,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_mamm_bp_sm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4205,7 +4218,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_mamm_fp_md</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4271,7 +4284,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_mamm_se_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4370,7 +4383,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_mamm_sg_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4436,7 +4449,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_mamm_sg_sm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4502,7 +4515,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_mamm_tg_md</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4535,7 +4548,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_eec_dose_mamm_tg_sm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4568,7 +4581,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_ld50_bg_bird_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4634,7 +4647,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_ld50_bg_bird_sm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4700,7 +4713,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_ld50_bg_mamm_md</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4766,7 +4779,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_ld50_bl_bird_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4865,7 +4878,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_ld50_bl_mamm_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4931,7 +4944,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_ld50_bl_mamm_sm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5096,7 +5109,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_ld50_rg_mamm_md</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5261,7 +5274,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_ld50_rl_mamm_lg</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5426,7 +5439,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_sa_bird_1_s</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5525,7 +5538,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_sa_bird_2_s</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5591,7 +5604,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_sa_mamm_1_m</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5690,7 +5703,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_sa_mamm_2_m</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5756,7 +5769,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_sc_bird_l</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5921,7 +5934,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_integration.py::TestTrex::test_sc_mamm_s</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5954,7 +5967,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_anoael_mamm</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5972,7 +5985,7 @@ test_anoael_mamm
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_app_rate_parsing</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5993,7 +6006,7 @@ dtype: float64        dtype: float64
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_arq_diet_bird</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6011,7 +6024,7 @@ test_arq_diet_bird
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_arq_diet_mamm</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6029,7 +6042,7 @@ test_arq_diet_mamm
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_arq_dose_bird</td>
-          <td class="col-duration">0.06</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6047,7 +6060,7 @@ test_arq_dose_bird
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_arq_dose_mamm</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6065,7 +6078,7 @@ test_arq_dose_mamm
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_at_bird</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6083,7 +6096,7 @@ test_at_bird
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_at_bird1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.04</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6119,7 +6132,7 @@ test_at_mamm
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_conc_initial</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6137,7 +6150,7 @@ test_conc_initial
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_conc_timestep</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6155,7 +6168,7 @@ test_conc_timestep
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_crq_diet_bird</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6173,7 +6186,7 @@ test_crq_diet_bird
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_crq_diet_mamm</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6191,7 +6204,7 @@ test_crq_diet_mamm
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_crq_dose_mamm</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6209,7 +6222,7 @@ test_crq_dose_mamm
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_eec_diet_max</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6227,7 +6240,7 @@ test_eec_diet_max
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_eec_dose_bird</td>
-          <td class="col-duration">0.08</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6245,7 +6258,7 @@ test_eec_dose_bird
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_eec_dose_mamm</td>
-          <td class="col-duration">0.06</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6263,7 +6276,7 @@ test_eec_dose_mamm
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_fi_bird</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6299,7 +6312,7 @@ test_fi_mamm
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_inches_to_feet</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6335,7 +6348,7 @@ test_ld50_bg_bird
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_ld50_bg_mamm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6389,7 +6402,7 @@ test_ld50_bl_mamm
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_ld50_rg_bird</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.04</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6407,7 +6420,7 @@ test_ld50_rg_bird
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_ld50_rg_bird1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.04</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6425,7 +6438,7 @@ test_ld50_rg_bird1
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_ld50_rg_mamm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6461,7 +6474,7 @@ nan  2.20701  0.0363297
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_ld50_rl_mamm</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6479,7 +6492,7 @@ nan  0.611932  0.0024497
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_percent_to_frac</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6527,7 +6540,7 @@ test_sa_bird_1
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_sa_bird_2</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6617,7 +6630,7 @@ test_sa_mamm_2
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_sc_bird</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.04</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6635,7 +6648,7 @@ test_sc_bird
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/trex/tests/test_trex_unittest.py::TestTrex::test_sc_mamm</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.04</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">

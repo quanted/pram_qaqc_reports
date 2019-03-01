@@ -9,6 +9,12 @@
 	min-width: 1200px;
 	color: #999;
 }
+
+h1 {
+	font-size: 24px;
+	color: black;
+}
+
 h2 {
 	font-size: 16px;
 	color: black;
@@ -242,9 +248,10 @@ function add_collapse() {
 
     // Add show/hide link to each result
     find_all('.col-result').forEach(function(elem) {
+        var collapsed = get_query_parameter('collapsed') || 'Passed';
         var extras = elem.parentNode.nextElementSibling;
         var expandcollapse = document.createElement("span");
-        if (elem.innerHTML === 'Passed') {
+        if (collapsed.includes(elem.innerHTML)) {
             extras.classList.add("collapsed");
             expandcollapse.classList.add("expander");
         } else {
@@ -260,6 +267,11 @@ function add_collapse() {
             }
         });
     })
+}
+
+function get_query_parameter(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
 function init () {
@@ -385,24 +397,25 @@ function filter_table(elem) {
     not_found_message.hidden = !all_rows_hidden;
 }
 </script>
-    <p>Report generated on 18-Apr-2018 at 15:06:24 by<a href="https://pypi.python.org/pypi/pytest-html"> pytest-html</a> v1.16.1</p>
+    <h1>agdrift.html</h1>
+    <p>Report generated on 01-Mar-2019 at 11:28:17 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v1.20.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
         <td>Packages</td>
-        <td>{&apos;pytest&apos;: &apos;3.4.2&apos;, &apos;py&apos;: &apos;1.5.2&apos;, &apos;pluggy&apos;: &apos;0.6.0&apos;}</td></tr>
+        <td>{&apos;pytest&apos;: &apos;4.1.1&apos;, &apos;py&apos;: &apos;1.7.0&apos;, &apos;pluggy&apos;: &apos;0.8.1&apos;}</td></tr>
       <tr>
         <td>Platform</td>
-        <td>Windows-10-10.0.14393-SP0</td></tr>
+        <td>Linux-3.10.0-957.5.1.el7.x86_64-x86_64-with-redhat-7.6-Maipo</td></tr>
       <tr>
         <td>Plugins</td>
-        <td>{&apos;metadata&apos;: &apos;1.6.0&apos;, &apos;html&apos;: &apos;1.16.1&apos;, &apos;celery&apos;: &apos;4.1.0&apos;}</td></tr>
+        <td>{&apos;metadata&apos;: &apos;1.8.0&apos;, &apos;html&apos;: &apos;1.20.0&apos;, &apos;celery&apos;: &apos;4.2.1&apos;}</td></tr>
       <tr>
         <td>Python</td>
-        <td>3.6.3</td></tr></table>
+        <td>3.7.2</td></tr></table>
     <h2>Summary</h2>
-    <p>43 tests ran in 50.11 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">43 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>43 tests ran in 63.46 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">42 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">1 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -413,11 +426,31 @@ function filter_table(elem) {
           <th>Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
+      <tbody class="failed results-table-row">
+        <tr>
+          <td class="col-result">Failed</td>
+          <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_list_sims_per_scenario</td>
+          <td class="col-duration">0.02</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;qed.flask_qed.pram_flask.ubertool.ubertool.agdrift.tests.test_agdrift_unittest.TestAgdrift testMethod=test_list_sims_per_scenario&gt;<br/><br/>    def test_list_sims_per_scenario(self):<br/>        &quot;&quot;&quot;<br/>        :description scan simulations and count number and indices of simulations that apply to each scenario<br/>        :parameter num_scenarios number of deposition scenarios included in SQL database<br/>        :parameter num_simulations number of simulations included in this model execution<br/>        :parameter scenario_name name of deposition scenario as recorded in SQL database<br/>        :parameter out_sim_scenario_id identification of deposition scenario specified per model run simulation<br/>        :return:<br/>        &quot;&quot;&quot;<br/>    <br/>        # create empty pandas dataframes to create empty object for this unittest<br/>        agdrift_empty = self.create_agdrift_object()<br/>    <br/>        expected_num_sims = pd.Series([2,2,2,2,2,2,2,2,2,2,2,2,2], dtype=&#x27;int&#x27;)<br/>        expected_sim_indices = pd.Series([[0,13,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [1,14,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [2,15,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [3,16,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [4,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [5,18,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [6,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [7,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [8,21,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [9,22,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [10,23,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [11,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],<br/>                                          [12,25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]], dtype=&#x27;int&#x27;)<br/>    <br/>        try:<br/>    <br/>            agdrift_empty.scenario_name = pd.Series([&#x27;aerial_vf2f&#x27;, &#x27;aerial_f2m&#x27;, &#x27;aerial_m2c&#x27;, &#x27;aerial_c2vc&#x27;,<br/>                                           &#x27;ground_low_vf&#x27;, &#x27;ground_low_fmc&#x27;, &#x27;ground_high_vf&#x27;, &#x27;ground_high_fmc&#x27;,<br/>                                           &#x27;airblast_normal&#x27;, &#x27;airblast_dense&#x27;, &#x27;airblast_sparse&#x27;, &#x27;airblast_vineyard&#x27;,<br/>                                           &#x27;airblast_orchard&#x27;], dtype=&#x27;object&#x27;)<br/>            agdrift_empty.out_sim_scenario_id = pd.Series([&#x27;aerial_vf2f&#x27;, &#x27;aerial_f2m&#x27;, &#x27;aerial_m2c&#x27;, &#x27;aerial_c2vc&#x27;,<br/>                                           &#x27;ground_low_vf&#x27;, &#x27;ground_low_fmc&#x27;, &#x27;ground_high_vf&#x27;, &#x27;ground_high_fmc&#x27;,<br/>                                           &#x27;airblast_normal&#x27;, &#x27;airblast_dense&#x27;, &#x27;airblast_sparse&#x27;, &#x27;airblast_vineyard&#x27;,<br/>                                           &#x27;airblast_orchard&#x27;,&#x27;aerial_vf2f&#x27;, &#x27;aerial_f2m&#x27;, &#x27;aerial_m2c&#x27;, &#x27;aerial_c2vc&#x27;,<br/>                                           &#x27;ground_low_vf&#x27;, &#x27;ground_low_fmc&#x27;, &#x27;ground_high_vf&#x27;, &#x27;ground_high_fmc&#x27;,<br/>                                           &#x27;airblast_normal&#x27;, &#x27;airblast_dense&#x27;, &#x27;airblast_sparse&#x27;, &#x27;airblast_vineyard&#x27;,<br/>                                           &#x27;airblast_orchard&#x27;], dtype=&#x27;object&#x27;)<br/>    <br/>            agdrift_empty.num_simulations = len(agdrift_empty.out_sim_scenario_id)<br/>            agdrift_empty.num_scenarios = len(agdrift_empty.scenario_name)<br/>    <br/>            result_num_sims, result_sim_indices = agdrift_empty.list_sims_per_scenario()<br/>            npt.assert_array_equal(result_num_sims, expected_num_sims, err_msg=&#x27;&#x27;, verbose=True)<br/>&gt;           npt.assert_array_equal(result_sim_indices, expected_sim_indices, err_msg=&#x27;&#x27;, verbose=True)<br/><span class="error">E           AssertionError: </span><br/><span class="error">E           Arrays are not equal</span><br/><span class="error">E           </span><br/><span class="error">E           (shapes (13, 26), (13,) mismatch)</span><br/><span class="error">E            x: array([[ 0, 13,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,</span><br/><span class="error">E                    0,  0,  0,  0,  0,  0,  0,  0,  0,  0],</span><br/><span class="error">E                  [ 1, 14,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,...</span><br/><span class="error">E            y: array([(0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),</span><br/><span class="error">E                  (1, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),</span><br/><span class="error">E                  (2, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),...</span><br/><br/>pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py:688: AssertionError<br/>----------------------------- Captured stdout call -----------------------------<br/>
+
+test_list_sims_per_scenario
+===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ================================================================================  ================================================================================  ================================================================================
+0                                                                                1                                                                                2                                                                                3                                                                                4                                                                                5                                                                                6                                                                                7                                                                                8                                                                                9                                                                                10                                                                                11                                                                                12
+===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ================================================================================  ================================================================================  ================================================================================
+2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                 2                                                                                 2
+2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                 2                                                                                 2
+[0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [1, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [2, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [3, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [4, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [5, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [6, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [7, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [8, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [9, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [10, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [11, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [12, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+(0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (1, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (2, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (3, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (4, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (5, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (6, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (7, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (8, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (9, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (10, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (11, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)  (12, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ================================================================================  ================================================================================  ================================================================================
+</div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_integration.py::TestAgdrift::test_assert_output_series</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -463,7 +496,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_integration.py::TestAgdrift::test_avg_dep_foa</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -516,7 +549,7 @@ test_avg_dep_foa
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_integration.py::TestAgdrift::test_avg_dep_gha</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -569,7 +602,7 @@ test_avg_dep_gha
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_integration.py::TestAgdrift::test_avg_dep_lbac</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -622,7 +655,7 @@ test_avg_dep_lbac
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_integration.py::TestAgdrift::test_avg_field_dep_mgcm2</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -675,7 +708,7 @@ test_avg_field_dep_mgcm2
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_integration.py::TestAgdrift::test_avg_waterconc_ngl</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -728,7 +761,7 @@ test_avg_waterconc_ngl
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_integration.py::TestAgdrift::test_distance_downwind</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -781,7 +814,7 @@ test_distance_downwind
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_integration.py::TestAgdrift::test_range_chk</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -883,7 +916,7 @@ test_distance_downwind
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_integration.py::TestAgdrift::test_sim_scenario_id</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -934,7 +967,7 @@ test_distance_downwind
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_assign_column_names</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -952,7 +985,7 @@ aerial_vf2f  aerial_f2m  aerial_m2c  aerial_c2vc  ground_low_vf  ground_low_fmc 
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_calc_avg_dep_foa</td>
-          <td class="col-duration">0.00</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -970,7 +1003,7 @@ test_calc_avg_dep_foa
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_calc_avg_dep_foa_from_lbac</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1006,7 +1039,7 @@ test_calc_avg_dep_gha
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_calc_avg_dep_lbac</td>
-          <td class="col-duration">0.00</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1024,7 +1057,7 @@ test_calc_avg_dep_lbac
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_calc_avg_dep_lbac_from_gha</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1042,7 +1075,7 @@ test_calc_avg_dep_lbac_from_gha
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_calc_avg_dep_lbac_from_mgcm2</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1060,7 +1093,7 @@ test_calc_avg_dep_lbac_from_mgcm2
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_calc_avg_dep_lbac_from_waterconc_ngl</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1136,7 +1169,7 @@ test_determine_area_dimensions
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_extend_curve</td>
-          <td class="col-duration">0.30</td>
+          <td class="col-duration">0.38</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1163,7 +1196,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_extend_curve1</td>
-          <td class="col-duration">0.27</td>
+          <td class="col-duration">0.32</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1190,7 +1223,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_extend_curve_opp</td>
-          <td class="col-duration">0.23</td>
+          <td class="col-duration">0.28</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1217,7 +1250,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_extend_curve_opp1</td>
-          <td class="col-duration">0.20</td>
+          <td class="col-duration">0.34</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1262,7 +1295,7 @@ test_filter_arrays
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_find_dep_pt_location</td>
-          <td class="col-duration">0.00</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1280,7 +1313,7 @@ test_find_dep_pt_location
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_generate_running_avg</td>
-          <td class="col-duration">0.25</td>
+          <td class="col-duration">0.41</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1307,7 +1340,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_generate_running_avg1</td>
-          <td class="col-duration">0.07</td>
+          <td class="col-duration">0.10</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1332,7 +1365,7 @@ expected 45 number of points and got 45 points
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_generate_running_avg2</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.10</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1401,7 +1434,7 @@ distance_ft  aerial_vf2f  aerial_f2m  aerial_m2c  aerial_c2vc  ground_low_vf  gr
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_get_distances</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1419,7 +1452,7 @@ test_get_distances
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_get_scenario_deposition_data</td>
-          <td class="col-duration">0.06</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2242,28 +2275,8 @@ test_get_scenario_deposition_data
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
-          <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_list_sims_per_scenario</td>
-          <td class="col-duration">0.02</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">----------------------------- Captured stdout call -----------------------------<br/>
-
-test_list_sims_per_scenario
-===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ================================================================================  ================================================================================  ================================================================================
-0                                                                                1                                                                                2                                                                                3                                                                                4                                                                                5                                                                                6                                                                                7                                                                                8                                                                                9                                                                                10                                                                                11                                                                                12
-===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ================================================================================  ================================================================================  ================================================================================
-2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                 2                                                                                 2
-2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                2                                                                                 2                                                                                 2
-[0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [1, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [2, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [3, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [4, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [5, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [6, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [7, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [8, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [9, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [10, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [11, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [12, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-[0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [1, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [2, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [3, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [4, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [5, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [6, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [7, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [8, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [9, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [10, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [11, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]  [12, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ===============================================================================  ================================================================================  ================================================================================  ================================================================================
-</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
-        <tr>
-          <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg</td>
-          <td class="col-duration">0.25</td>
+          <td class="col-duration">0.33</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2291,7 +2304,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.03</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2319,7 +2332,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg2</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.08</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2347,7 +2360,7 @@ y_array result/y_array_expected
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_locate_integrated_avg3</td>
-          <td class="col-duration">0.06</td>
+          <td class="col-duration">0.07</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2393,7 +2406,7 @@ test_round_model_outputs
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/agdrift/tests/test_agdrift_unittest.py::TestAgdrift::test_set_sim_scenario_id</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.02</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">

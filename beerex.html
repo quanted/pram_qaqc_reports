@@ -9,6 +9,12 @@
 	min-width: 1200px;
 	color: #999;
 }
+
+h1 {
+	font-size: 24px;
+	color: black;
+}
+
 h2 {
 	font-size: 16px;
 	color: black;
@@ -242,9 +248,10 @@ function add_collapse() {
 
     // Add show/hide link to each result
     find_all('.col-result').forEach(function(elem) {
+        var collapsed = get_query_parameter('collapsed') || 'Passed';
         var extras = elem.parentNode.nextElementSibling;
         var expandcollapse = document.createElement("span");
-        if (elem.innerHTML === 'Passed') {
+        if (collapsed.includes(elem.innerHTML)) {
             extras.classList.add("collapsed");
             expandcollapse.classList.add("expander");
         } else {
@@ -260,6 +267,11 @@ function add_collapse() {
             }
         });
     })
+}
+
+function get_query_parameter(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
 function init () {
@@ -385,23 +397,24 @@ function filter_table(elem) {
     not_found_message.hidden = !all_rows_hidden;
 }
 </script>
-    <p>Report generated on 18-Apr-2018 at 15:07:14 by<a href="https://pypi.python.org/pypi/pytest-html"> pytest-html</a> v1.16.1</p>
+    <h1>beerex.html</h1>
+    <p>Report generated on 01-Mar-2019 at 11:29:18 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v1.20.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
         <td>Packages</td>
-        <td>{&apos;pytest&apos;: &apos;3.4.2&apos;, &apos;py&apos;: &apos;1.5.2&apos;, &apos;pluggy&apos;: &apos;0.6.0&apos;}</td></tr>
+        <td>{&apos;pytest&apos;: &apos;4.1.1&apos;, &apos;py&apos;: &apos;1.7.0&apos;, &apos;pluggy&apos;: &apos;0.8.1&apos;}</td></tr>
       <tr>
         <td>Platform</td>
-        <td>Windows-10-10.0.14393-SP0</td></tr>
+        <td>Linux-3.10.0-957.5.1.el7.x86_64-x86_64-with-redhat-7.6-Maipo</td></tr>
       <tr>
         <td>Plugins</td>
-        <td>{&apos;metadata&apos;: &apos;1.6.0&apos;, &apos;html&apos;: &apos;1.16.1&apos;, &apos;celery&apos;: &apos;4.1.0&apos;}</td></tr>
+        <td>{&apos;metadata&apos;: &apos;1.8.0&apos;, &apos;html&apos;: &apos;1.20.0&apos;, &apos;celery&apos;: &apos;4.2.1&apos;}</td></tr>
       <tr>
         <td>Python</td>
-        <td>3.6.3</td></tr></table>
+        <td>3.7.2</td></tr></table>
     <h2>Summary</h2>
-    <p>119 tests ran in 47.99 seconds. </p>
+    <p>119 tests ran in 59.73 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">119 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -417,7 +430,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_ad_acute_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -450,7 +463,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_ad_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -483,7 +496,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_ad_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -549,7 +562,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aq_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -582,7 +595,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aq_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -615,7 +628,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_assert_output_series</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -755,7 +768,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_brood_acute_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -788,7 +801,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_brood_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -821,7 +834,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_brood_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -854,7 +867,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_cell_acute_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -887,7 +900,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_cell_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -920,7 +933,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_cell_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -986,7 +999,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_comb_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1019,7 +1032,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_comb_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1052,7 +1065,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_nectar_acute_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1085,7 +1098,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_nectar_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1138,7 +1151,7 @@ function filter_table(elem) {
 ├────┼────────────────────────────┼────────────────────────────┤
 │  5 │                0.438672    │                0.438672    │
 ├────┼────────────────────────────┼────────────────────────────┤
-│  6 │                0.257227    │                0.257226    │
+│  6 │                0.257227    │                0.257227    │
 ├────┼────────────────────────────┼────────────────────────────┤
 │  7 │                0.1192      │                0.1192      │
 ├────┼────────────────────────────┼────────────────────────────┤
@@ -1151,7 +1164,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_pollen_acute_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1184,7 +1197,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_pollen_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1217,7 +1230,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_pollen_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1250,7 +1263,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_winter_acute_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1283,7 +1296,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_winter_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1316,7 +1329,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_aw_winter_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1349,7 +1362,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_eec_method</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1382,7 +1395,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_eec_seed</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1415,7 +1428,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_eec_soil</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1514,7 +1527,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_ld6_acute_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1580,7 +1593,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_ld6_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1613,7 +1626,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lq1_acute_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1646,7 +1659,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lq1_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1679,7 +1692,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lq1_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1745,7 +1758,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lq2_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1778,7 +1791,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lq2_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1811,7 +1824,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lq3_acute_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1844,7 +1857,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lq3_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1877,7 +1890,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lq3_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2042,7 +2055,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lw1_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2075,7 +2088,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lw1_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2108,7 +2121,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lw2_acute_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2273,7 +2286,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lw3_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2306,7 +2319,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lw4_acute_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2339,7 +2352,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lw4_chronic_rq</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2372,7 +2385,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/beerex/tests/test_beerex_integration.py::TestBeerex::test_lw4_total_dose</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">

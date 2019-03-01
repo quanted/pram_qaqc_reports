@@ -9,6 +9,12 @@
 	min-width: 1200px;
 	color: #999;
 }
+
+h1 {
+	font-size: 24px;
+	color: black;
+}
+
 h2 {
 	font-size: 16px;
 	color: black;
@@ -242,9 +248,10 @@ function add_collapse() {
 
     // Add show/hide link to each result
     find_all('.col-result').forEach(function(elem) {
+        var collapsed = get_query_parameter('collapsed') || 'Passed';
         var extras = elem.parentNode.nextElementSibling;
         var expandcollapse = document.createElement("span");
-        if (elem.innerHTML === 'Passed') {
+        if (collapsed.includes(elem.innerHTML)) {
             extras.classList.add("collapsed");
             expandcollapse.classList.add("expander");
         } else {
@@ -260,6 +267,11 @@ function add_collapse() {
             }
         });
     })
+}
+
+function get_query_parameter(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
 function init () {
@@ -385,23 +397,24 @@ function filter_table(elem) {
     not_found_message.hidden = !all_rows_hidden;
 }
 </script>
-    <p>Report generated on 18-Apr-2018 at 15:09:43 by<a href="https://pypi.python.org/pypi/pytest-html"> pytest-html</a> v1.16.1</p>
+    <h1>kabam.html</h1>
+    <p>Report generated on 01-Mar-2019 at 11:32:22 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v1.20.0</p>
     <h2>Environment</h2>
     <table id="environment">
       <tr>
         <td>Packages</td>
-        <td>{&apos;pytest&apos;: &apos;3.4.2&apos;, &apos;py&apos;: &apos;1.5.2&apos;, &apos;pluggy&apos;: &apos;0.6.0&apos;}</td></tr>
+        <td>{&apos;pytest&apos;: &apos;4.1.1&apos;, &apos;py&apos;: &apos;1.7.0&apos;, &apos;pluggy&apos;: &apos;0.8.1&apos;}</td></tr>
       <tr>
         <td>Platform</td>
-        <td>Windows-10-10.0.14393-SP0</td></tr>
+        <td>Linux-3.10.0-957.5.1.el7.x86_64-x86_64-with-redhat-7.6-Maipo</td></tr>
       <tr>
         <td>Plugins</td>
-        <td>{&apos;metadata&apos;: &apos;1.6.0&apos;, &apos;html&apos;: &apos;1.16.1&apos;, &apos;celery&apos;: &apos;4.1.0&apos;}</td></tr>
+        <td>{&apos;metadata&apos;: &apos;1.8.0&apos;, &apos;html&apos;: &apos;1.20.0&apos;, &apos;celery&apos;: &apos;4.2.1&apos;}</td></tr>
       <tr>
         <td>Python</td>
-        <td>3.6.3</td></tr></table>
+        <td>3.7.2</td></tr></table>
     <h2>Summary</h2>
-    <p>274 tests ran in 48.58 seconds. </p>
+    <p>274 tests ran in 62.53 seconds. </p>
     <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">274 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
@@ -440,7 +453,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_diet_based_a1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -509,7 +522,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_diet_based_a4</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -555,7 +568,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_diet_based_m0</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -624,7 +637,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_diet_based_m3</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -670,7 +683,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_diet_based_m5</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -716,7 +729,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_dose_based_a1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -831,7 +844,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_dose_based_m0</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -900,7 +913,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_dose_based_m3</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1015,7 +1028,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_rq_diet_a2</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1130,7 +1143,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_rq_diet_m1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1245,7 +1258,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_rq_dose_a0</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1291,7 +1304,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_rq_dose_a2</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1360,7 +1373,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_rq_dose_a5</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1406,7 +1419,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_acute_rq_dose_m1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1521,7 +1534,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_assert_output_series</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -1984,7 +1997,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_assert_output_series_dtypes</td>
-          <td class="col-duration">0.00</td>
+          <td class="col-duration">0.01</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2062,7 +2075,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_aweight4</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2131,7 +2144,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_bmf_filterfeeders</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2200,7 +2213,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_bmf_sfish</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2269,7 +2282,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cb_filterfeeders</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2499,7 +2512,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbaf_phytoplankton</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2568,7 +2581,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbafl_beninv</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2660,7 +2673,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbafl_phytoplankton</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2683,7 +2696,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbafl_sfish</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2752,7 +2765,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbd_filterfeeders</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2798,7 +2811,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbd_mfish</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2844,7 +2857,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbd_zoo</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2867,7 +2880,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbf_beninv</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2913,7 +2926,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbf_lfish</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2959,7 +2972,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbf_phytoplankton</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -2982,7 +2995,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbf_sfish</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3005,7 +3018,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbf_zoo</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3051,7 +3064,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbfl_filterfeeders</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3097,7 +3110,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbfl_mfish</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3143,7 +3156,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbfl_sfish</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3212,7 +3225,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbl_filterfeeders</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3258,7 +3271,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbl_mfish</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3327,7 +3340,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbl_zoo</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3442,7 +3455,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbr_phytoplankton</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3557,7 +3570,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbsafl_lfish</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3626,7 +3639,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_cbsafl_sfish</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3672,7 +3685,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_chronic_diet_based_a0</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3741,7 +3754,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_chronic_diet_based_a3</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3787,7 +3800,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_chronic_diet_based_a5</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3833,7 +3846,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_chronic_diet_based_m1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3902,7 +3915,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_chronic_diet_based_m4</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -3948,7 +3961,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_chronic_dose_based_m0</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4063,7 +4076,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_chronic_dose_based_m5</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4109,7 +4122,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_chronic_rq_diet_a1</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4247,7 +4260,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_chronic_rq_diet_m1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4362,7 +4375,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_chronic_rq_dose_m0</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4477,7 +4490,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_chronic_rq_dose_m5</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4523,7 +4536,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_db41</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4592,7 +4605,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_db44</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4661,7 +4674,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_db4a1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4707,7 +4720,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_db4a3</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4776,7 +4789,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_db50</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4822,7 +4835,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_db52</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -4937,7 +4950,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_db5a1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5006,7 +5019,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_db5a4</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5052,7 +5065,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_dfir0</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5121,7 +5134,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_dfir3</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5190,7 +5203,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_dfira0</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5259,7 +5272,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_dfira3</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5328,7 +5341,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_drinking_water_intake_a0</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5374,7 +5387,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_drinking_water_intake_a2</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5489,7 +5502,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_drinking_water_intake_m1</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5558,7 +5571,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_drinking_water_intake_m4</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5604,7 +5617,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_free_pest_conc_watercol</td>
-          <td class="col-duration">0.01</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5765,7 +5778,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_wet_food_ingestion_a0</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5834,7 +5847,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_wet_food_ingestion_a3</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5903,7 +5916,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_wet_food_ingestion_m0</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -5972,7 +5985,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_integration.py::TestKabam::test_wet_food_ingestion_m3</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.00</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6041,7 +6054,7 @@ function filter_table(elem) {
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_acute_dose_based_tox_birds</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6052,14 +6065,14 @@ test_acute_dose_based_tox_birds
 0                                                                           1                                                                               2
 ==========================================================================  ==============================================================================  =============================================================================
 [36.9582003  88.40310842 44.598579   77.96793198 68.7215296  89.91155422]   [49.80192597 89.07393102 56.44856978 81.91867866 75.30679072 90.08433255]       [11.82177011 50.57591068 16.1696091  41.02272544 33.23934936 52.02239313]
-[36.9582003, 88.40320842, 44.598579, 77.96793198, 68.7215296, 89.91155422]  [49.80192597, 89.07393102, 56.44856978, 81.91867866, 75.30679072, 90.08433255]  [11.82177011, 50.57591068, 16.1696091, 41.02272544, 33.23934936, 52.02239313]
+(36.9582003, 88.40320842, 44.598579, 77.96793198, 68.7215296, 89.91155422)  (49.80192597, 89.07393102, 56.44856978, 81.91867866, 75.30679072, 90.08433255)  (11.82177011, 50.57591068, 16.1696091, 41.02272544, 33.23934936, 52.02239313)
 ==========================================================================  ==============================================================================  =============================================================================
 </div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_acute_dose_based_tox_mammals</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6071,14 +6084,14 @@ test_acute_dose_based_tox_mammals
 ======================================================================  ===========================================================================  ===========================================================================
 [104.99506558  71.22497148  46.95522079  33.20235503  25.71843362       [136.93063938  92.88894511  61.23724357  43.30127019  33.54101966            [54.2796302  36.82139815 24.27458859 17.1647262  13.29573974 10.10257752]
   19.54178364]                                                            25.48566367]
-[104.995065, 71.224971, 46.9552207, 33.202355, 25.7184336, 19.5417836]  [136.9306393, 92.8889451, 61.23724357, 43.30127019, 33.5410196, 25.4856636]  [54.2796302, 36.82139815, 24.27458859, 17.1647262, 13.2957397, 10.10257752]
+(104.995065, 71.224971, 46.9552207, 33.202355, 25.7184336, 19.5417836)  (136.9306393, 92.8889451, 61.23724357, 43.30127019, 33.5410196, 25.4856636)  (54.2796302, 36.82139815, 24.27458859, 17.1647262, 13.2957397, 10.10257752)
 ======================================================================  ===========================================================================  ===========================================================================
 </div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_acute_rq_diet_birds</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6096,7 +6109,7 @@ test_acute_rq_diet_birds
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_acute_rq_diet_mammals</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6114,7 +6127,7 @@ test_acute_rq_diet_mammals
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_acute_rq_dose_birds</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6132,7 +6145,7 @@ test_acute_rq_dose_birds
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_acute_rq_dose_mammals</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6150,7 +6163,7 @@ test_acute_rq_dose_mammals
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_animal_grow_rate_const</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6168,7 +6181,7 @@ test_animal_grow_rate_const
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_animal_water_part_coef</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6204,7 +6217,7 @@ test_aq_animal_feeding_rate
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_aq_animal_k1_calc</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.06</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6222,7 +6235,7 @@ nan  1201.14  169.374
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_aq_animal_k2_calc</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6240,7 +6253,7 @@ test_aq_animal_k2_calc
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_biomag_fact</td>
-          <td class="col-duration">0.06</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6258,7 +6271,7 @@ test_biomag_fact
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_biota_sed_acc_fact</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6276,7 +6289,7 @@ test_biota_sed_acc_fact
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_chronic_rq_diet_birds</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6294,7 +6307,7 @@ test_chronic_rq_diet_birds
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_chronic_rq_diet_mammals</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6312,7 +6325,7 @@ test_chronic_rq_diet_mammals
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_chronic_rq_dose_mammals</td>
-          <td class="col-duration">0.09</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6366,7 +6379,7 @@ test_conc_sed_dry_wgt
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_conc_sed_norm_4oc</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6422,7 +6435,7 @@ test_diet_pest_conc
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_diet_uptake_rate_const</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6440,7 +6453,7 @@ test_diet_uptake_rate_const
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_dietary_based_eec</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6451,14 +6464,14 @@ test_dietary_based_eec
 0                                                        1                                                        2
 =======================================================  =======================================================  =======================================================
 [0.000367 0.000265 0.00045  0.0003   0.0001   0.00015 ]  [0.000566 0.000464 0.00065  0.0005   0.0002   0.0009  ]  [0.000536 0.000468 0.00055  0.00045  0.0006   0.0005  ]
-[0.000367, 0.000265, 0.00045, 0.0003, 0.0001, 0.00015]   [0.000566, 0.000464, 0.00065, 0.0005, 0.0002, 0.0009]    [0.000536, 0.000468, 0.00055, 0.00045, 0.0006, 0.0005]
+(0.000367, 0.000265, 0.00045, 0.0003, 0.0001, 0.00015)   (0.000566, 0.000464, 0.00065, 0.0005, 0.0002, 0.0009)    (0.000536, 0.000468, 0.00055, 0.00045, 0.0006, 0.0005)
 =======================================================  =======================================================  =======================================================
 </div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_dietary_trans_eff</td>
-          <td class="col-duration">0.02</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6476,7 +6489,7 @@ test_dietary_trans_eff
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_dose_based_eec</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6488,14 +6501,14 @@ test_dose_based_eec
 ===============================================================================================  ==============================================================================================  ===============================================================================================
 [3.33094361e-04 2.40677772e-05 2.64847776e-04 5.88650493e-05                                     [7.69043192e-04 5.77145926e-05 5.77791962e-04 2.00004152e-04                                    [6.43629084e-04 8.77034414e-05 2.00283790e-04 2.25083041e-04
  1.85733305e-05 1.66970096e-05]                                                                   1.00005481e-04 1.80003034e-04]                                                                  5.00109603e-04 3.00060689e-04]
-[0.00033309436, 2.40677772e-05, 0.000264847776, 5.88650493e-05, 1.85733305e-05, 1.66970096e-05]  [0.000769043192, 5.7714592e-05, 0.000577791962, 0.000200004152, 0.000100005481, 0.00018000303]  [0.000643629084, 8.77034414e-05, 0.00020028379, 0.000225083041, 0.000500109603, 0.000300060689]
+(0.00033309436, 2.40677772e-05, 0.000264847776, 5.88650493e-05, 1.85733305e-05, 1.66970096e-05)  (0.000769043192, 5.7714592e-05, 0.000577791962, 0.000200004152, 0.000100005481, 0.00018000303)  (0.000643629084, 8.77034414e-05, 0.00020028379, 0.000225083041, 0.000500109603, 0.000300060689)
 ===============================================================================================  ==============================================================================================  ===============================================================================================
 </div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_drinking_water_intake_birds</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6513,7 +6526,7 @@ test_drinking_water_intake_birds
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_drinking_water_intake_mammals</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6531,7 +6544,7 @@ test_drinking_water_intake_mammals
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_dry_food_ingest_rate_birds</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6549,7 +6562,7 @@ test_dry_food_ingest_rate_birds
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_dry_food_ingest_rate_mammals</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6567,7 +6580,7 @@ test_dry_food_ingest_rate_mammals
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_fecal_egestion_rate_factor</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6585,7 +6598,7 @@ test_fecal_egestion_rate_factor
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_fecal_elim_rate_const</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6603,7 +6616,7 @@ test_fecal_elim_rate_const
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_filterfeeder_feeding_rate</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6621,7 +6634,7 @@ nan  1.97287e-07  0.032822
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_frac_pest_freely_diss</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6639,7 +6652,7 @@ test_frac_pest_freely_diss
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_gut_organism_partition_coef</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6657,7 +6670,7 @@ test_gut_organism_partition_coef
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_lipid_norm_bioacc_fact</td>
-          <td class="col-duration">0.06</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6675,7 +6688,7 @@ test_lipid_norm_bioacc_fact
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_lipid_norm_bioconc_fact</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6729,7 +6742,7 @@ test_overall_diet_content
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_pest_conc_diet_uptake</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6747,7 +6760,7 @@ test_pest_conc_diet_uptake
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_pest_conc_organism</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6783,7 +6796,7 @@ test_pest_conc_respir_uptake
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_pest_uptake_eff_gills</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6801,7 +6814,7 @@ nan  0.540088  0.540495
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_phytoplankton_k1_calc</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.10</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6837,7 +6850,7 @@ test_tot_bioacc_fact
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_tot_bioconc_fact</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6855,7 +6868,7 @@ test_tot_bioconc_fact
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_ventilation_rate</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.05</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6873,7 +6886,7 @@ nan  0.00394574  0.468885
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::test_wet_food_ingestion_rates</td>
-          <td class="col-duration">0.03</td>
+          <td class="col-duration">0.06</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6884,14 +6897,14 @@ test_wet_food_ingestion_rates
 0                                                                         1                                                                    2
 ========================================================================  ===================================================================  ===================================================================
 [0.90702948 0.09070295 0.58823529 0.19607843 0.18518519 0.11111111]       [1.35869565 0.12437811 0.88888889 0.4        0.5        0.2       ]  [1.2        0.18726592 0.36363636 0.5        0.83333333 0.6       ]
-[0.90702948, 0.09070295, 0.58823529, 0.19607843, 0.18518519, 0.11111111]  [1.35869565, 0.12437811, 0.88888889, 0.4, 0.5, 0.2]                  [1.2, 0.18726592, 0.36363636, 0.5, 0.8333333, 0.6]
+(0.90702948, 0.09070295, 0.58823529, 0.19607843, 0.18518519, 0.11111111)  (1.35869565, 0.12437811, 0.88888889, 0.4, 0.5, 0.2)                  (1.2, 0.18726592, 0.36363636, 0.5, 0.8333333, 0.6)
 ========================================================================  ===================================================================  ===================================================================
 </div></td></tr></tbody>
       <tbody class="passed results-table-row">
         <tr>
           <td class="col-result">Passed</td>
           <td class="col-name">pram_flask/ubertool/ubertool/kabam/tests/test_kabam_unittest.py::TestKabam::tested_chronic_dose_based_tox_mammals</td>
-          <td class="col-duration">0.05</td>
+          <td class="col-duration">0.06</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
@@ -6902,6 +6915,6 @@ tested_chronic_dose_based_tox_mammals
 0                                                                          1                                                                             2
 =========================================================================  ============================================================================  ========================================================================
 [1.04995066 0.71224971 0.46955221 0.33202355 0.25718434 0.19541784]        [45.64354646 30.9629817  20.41241452 14.43375673 11.18033989  8.49522122]     [5.42796302 3.68213981 2.42745886 1.71647262 1.32957397 1.01025775]
-[1.04995066, 0.71224971, 0.469552207, 0.33202355, 0.25718434, 0.19541784]  [45.64354646, 30.9629817, 20.41241452, 14.43375673, 11.18033989, 8.49522122]  [5.42796302, 3.68213981, 2.42745886, 1.71647262, 1.32957397, 1.01025775]
+(1.04995066, 0.71224971, 0.469552207, 0.33202355, 0.25718434, 0.19541784)  (45.64354646, 30.9629817, 20.41241452, 14.43375673, 11.18033989, 8.49522122)  (5.42796302, 3.68213981, 2.42745886, 1.71647262, 1.32957397, 1.01025775)
 =========================================================================  ============================================================================  ========================================================================
 </div></td></tr></tbody></table></body></html>
